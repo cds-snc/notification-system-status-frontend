@@ -1,0 +1,24 @@
+{
+  "name": "notification-system-status-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for GC Notify's system status",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css; mkdir -p ./dist/img && cp ./assets/img/* ./dist/img/",
+    "watch": "npm run build; npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cds-snc/notification-system-status-frontend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cds-snc/notification-system-status-frontend/issues"
+  },
+  "homepage": "https://github.com/cds-snc/notification-system-status-frontend#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
+  }
+}
