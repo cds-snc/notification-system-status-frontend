@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>GC Notify - System Status</title>
-    <meta name="description" content="Simple landind page" />
+    <meta name="description" content="GC Notify system status" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
 
@@ -38,9 +38,9 @@
     <!--Nav-->
     <nav
       id="header"
-      class="fixed w-full z-30 top-0 text-white"
+      class="fixed w-full z-30 top-0 text-white bg-darken"
     >
-      <div class="container max-w-5xl mx-auto m-8">
+      <div class="container max-w-5xl mx-auto m-6">
         <div
           class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
         >
@@ -104,7 +104,6 @@
             </button>
           </div>
         </div>
-        <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
       </div>
     </nav>
     <!--Hero-->
@@ -117,7 +116,7 @@
           class="flex flex-col w-full mt-10 justify-center items-center text-left"
         >
           <div
-            class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+            class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-8 dark:bg-gray-800 dark:border-gray-700"
           >
             <div class="flex items-center justify-between mb-4">
               <h5
@@ -388,8 +387,12 @@
           header.classList.add("bg-white");
           header.classList.add("dark:bg-gray-800");
           header.classList.remove("text-white");
+          header.classList.remove("bg-darken");          
           header.classList.add("text-black");
           header.classList.add("dark:text-white");
+          header.classList.add("border-b-1");
+          header.classList.add("border-gray-300");
+          header.classList.add("dark:border-gray-700");
           navaction.classList.remove("bg-white");
           navaction.classList.add("gradient");
           navaction.classList.remove("text-gray-800");
@@ -406,7 +409,11 @@
           header.classList.remove("bg-white");
           header.classList.remove("dark:bg-gray-800");
           header.classList.add("text-white");
+          header.classList.add("bg-darken");          
           header.classList.remove("text-black");
+          header.classList.remove("border-b-1");
+          header.classList.remove("border-gray-300");
+          header.classList.remove("dark:border-gray-700");
           navaction.classList.remove("gradient");
           navaction.classList.add("bg-white");
           navaction.classList.remove("text-white");
@@ -429,5 +436,43 @@
         document.body.classList.toggle("dark");
       });
     </script>
+
+<script>
+    /*Toggle dropdown list*/
+    /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+    var navMenuDiv = document.getElementById("nav-content");
+    var navMenu = document.getElementById("nav-toggle");
+
+    document.onclick = check;
+    function check(e) {
+      var target = (e && e.target) || (event && event.srcElement);
+
+      //Nav Menu
+      if (!checkParent(target, navMenuDiv)) {
+        // click NOT on the menu
+        if (checkParent(target, navMenu)) {
+          // click on the link
+          if (navMenuDiv.classList.contains("hidden")) {
+            navMenuDiv.classList.remove("hidden");
+          } else {
+            navMenuDiv.classList.add("hidden");
+          }
+        } else {
+          // click both outside link and outside menu, hide menu
+          navMenuDiv.classList.add("hidden");
+        }
+      }
+    }
+    function checkParent(t, elm) {
+      while (t.parentNode) {
+        if (t == elm) {
+          return true;
+        }
+        t = t.parentNode;
+      }
+      return false;
+    }
+  </script>
   </body>
 </html>

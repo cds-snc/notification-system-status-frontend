@@ -42,3 +42,7 @@ body {
   .checkbox:checked + .checkbox-label .ball {
     transform: translateX(24px);
   }
+
+  .bg-darken {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
