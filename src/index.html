@@ -68,7 +68,7 @@
                   d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
                 />
               </svg>
-              GC Notify System Status
+              <span data-i18n="site_title">GC Notify System Status</span>
             </a>
           </div>
           <div class="block lg:hidden pr-4">
@@ -100,7 +100,7 @@
               id="navAction"
               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
-              Français
+              <span data-i18n="lang_button">Français</span>
             </button>
           </div>
         </div>
@@ -280,7 +280,7 @@
         <h2
           class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 dark:text-white"
         >
-          Incidents and service interruptions
+          <span data-i18n="incident_history_title">Incidents and service interruptions</span>
         </h2>
         <div class="w-full mb-4">
           <div
@@ -380,13 +380,13 @@
       <h2
         class="w-full border-0 my-2 mb-10 text-5xl font-bold leading-tight text-center text-white"
       >
-        Back to GC Notify
+        <span data-i18n="back_title">Back to GC Notify</span>
       </h2>
       <a
         href="https://notification.canada.ca"
         class="mx-auto mt-10 lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
-        Take me back!
+      <span data-i18n="back_button">Take me back!</span>
       </a>
     </section>
 
@@ -498,9 +498,17 @@
   </script>
 
   <script>
-    (async function() {
-      async function getIncidentHistory() {
-          const response = await fetch("https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=system-status&lang=en");
+     (async function() {
+      const incident_history_page = {
+        en: "https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=system-status&lang=en",
+        fr: "https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=etat-du-systeme&lang=fr",
+      }
+
+      async function getIncidentHistory(url) {
+          document.getElementById("history").innerHTML = "";
+          document.getElementById("history-loading").hidden = false;
+
+          const response = await fetch(url);
           const movies = await response.json();
           incident_html = movies[0].content.rendered;
 
@@ -515,11 +523,66 @@
           document.getElementById("history").innerHTML = incident_html;
       }
 
-      await getIncidentHistory();
-
+      await getIncidentHistory(incident_history_page.en);
+      window.getHistoryEn = function() {
+        getIncidentHistory(incident_history_page.en);
+      }
+      window.getHistoryFr = function() {
+        getIncidentHistory(incident_history_page.fr);
+      }
       var componentStatus = `
       `;
     })();
+  </script>
+  <script>
+    (function() {
+      var lang_strings = {
+        site_title: {
+          en: "GC Notify System Status",
+          fr: "État du système GC Notify",
+        },
+        lang_button: {
+          en: "Français",
+          fr: "English",
+        },
+        incident_history_title: {
+          en: "Incidents and service interruptions",
+          fr: "Incidents et interruptions de service",
+        },
+        back_title: {
+          en: "Back to GC Notify",
+          fr: "Retour à Notification GC",
+        },
+        back_button: {
+          en: "Take me back!",
+          fr: "Retour à Notification GC !",
+        },
+      }
+      
+      function load_translations() {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          var lang = document.documentElement.lang || 'en';
+          el.innerHTML = lang_strings[key][lang];
+        });
+      }
+
+      var lang_switcher = document.getElementById("navAction");
+      lang_switcher.addEventListener("click", function() {
+        var lang = document.documentElement.lang || 'en';
+        if (lang == 'en') {
+          document.documentElement.lang = 'fr';
+          getHistoryFr();
+        } else {
+          document.documentElement.lang = 'en';
+          getHistoryEn();
+        }
+        load_translations();
+      });
+
+      load_translations();
+    })();
+
   </script>
   </body>
 </html>
