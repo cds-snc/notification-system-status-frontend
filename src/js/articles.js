@@ -1,9 +1,8 @@
 /**
  * This module takes care of loading the incident history page from GC Articles.
  * 
- * It exposes two functions at the global scope:
- * - GetHistoryEn() - loads the English incident history page
- * - GetHistoryFr() - loads the French incident history page
+ * It exposes one function at the global scope:
+ * - LoadIncidentHistory() - loads the incident history content
  * 
  * @todo: Add caching
  */
@@ -26,15 +25,14 @@
       document.getElementById(loaderId).hidden = false;
 
       const response = await fetch(incident_history_pages[lang]);
-      const movies = await response.json();
-      incident_html = movies[0].content.rendered;
+      const incidents = await response.json();
+      incident_html = incidents[0].content.rendered;
 
       // fix up h3's to use tailwind
       incident_html = incident_html.replace(/wp-block-heading/g, 'text-3xl text-gray-800 dark:text-gray-400 font-bold leading-none mb-3 mt-10');
 
       // remove h2
       incident_html = incident_html.replace(/<h2.*\/h2>/g, '');
-      console.log(incident_html)
 
       document.getElementById(loaderId).hidden = true;
       document.getElementById(contentId).innerHTML = incident_html;
