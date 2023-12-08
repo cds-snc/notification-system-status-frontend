@@ -79,72 +79,8 @@
             <p class="font-medium text-black dark:text-white mr-2">Status</p>
           </div>
           <div class="flow-root">
-            <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-              <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                <div class="flex items-start">
-                  <i class="text-xl mt-1 mr-4 ml-3 fa-solid fa-code text-gray-900 dark:text-white"></i>
-
-                  <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-gray-900 truncate dark:text-white">
-                      GC Notify API
-                    </p>
-                    <p class="text-green-500 dark:text-green-300 font-bold truncate dark:text-gray-400">
-                      Up
-                    </p>
-                  </div>
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <i class="text-green-500 dark:text-green-300 text-2xl fa-regular fa-circle-check pr-2 mr-2"></i>
-                  </div>
-                </div>
-              </li>
-              <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                <div class="flex items-start">
-                  <i class="text-xl mt-1 mr-4 ml-3 fa-solid fa-desktop text-gray-900 dark:text-white"></i>
-                  <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-gray-900 truncate dark:text-white">
-                      GC Notify Website
-                    </p>
-                    <p class="text-green-500 dark:text-green-300 font-bold truncate dark:text-gray-400">
-                      Up
-                    </p>
-                  </div>
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <i class="text-green-500 dark:text-green-300 text-2xl fa-regular fa-circle-check pr-2 mr-2"></i>
-                  </div>
-                </div>
-              </li>
-              <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                <div class="flex items-start">
-                  <i class="text-xl mt-1 mr-4 ml-3 fa-solid fa-envelope text-gray-900 dark:text-white"></i>
-                  <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-gray-900 truncate dark:text-white">
-                      Email sending
-                    </p>
-                    <p class="text-green-500 dark:text-green-300 font-bold truncate dark:text-gray-400">
-                      Up
-                    </p>
-                  </div>
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <i class="text-green-500 dark:text-green-300 text-2xl fa-regular fa-circle-check pr-2 mr-2"></i>
-                  </div>
-                </div>
-              </li>
-              <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                <div class="flex items-start">
-                  <i class="text-xl mt-1 mr-4 ml-3 fa-solid fa-comment text-gray-900 dark:text-white"></i>
-                  <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-gray-900 truncate dark:text-white">
-                      Text message sending
-                    </p>
-                    <p class="text-green-500 dark:text-green-300 font-bold truncate dark:text-gray-400">
-                      Up
-                    </p>
-                  </div>
-                  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    <i class="text-green-500 dark:text-green-300 text-2xl fa-regular fa-circle-check pr-2 mr-2"></i>
-                  </div>
-                </div>
-              </li>
+            <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700" id="component_status_list">
+         
             </ul>
           </div>
         </div>
@@ -380,9 +316,9 @@
     }
   </script>
 
-  <script src="./js/articles.js"></script>
-  <script src="./js/i18n.js"></script>
-  
+  <script src="./js/articles.js"></script>          <!-- exposes `LoadIncidentHistory()` -->
+  <script src="./js/component_status.js"></script>  <!-- exposes `LoadComponentStatus()` -->
+  <script src="./js/i18n.js"></script>              <!-- exposes `SwitchLanguage()` and `LoadTranslations()` -->
   <script type="text/javascript">
     /**
      * Setup language switching and load incident history when the language changes
@@ -397,6 +333,19 @@
         }); 
       }
     });    
+
+    /**
+     * Load component status after a short delay
+     */
+    window.setTimeout(() => {
+      // Load the component status now
+      LoadComponentStatus(LoadTranslations);
+
+      // Load the component status again every 5 minutes
+      window.setInterval(() => {
+        LoadComponentStatus(LoadTranslations);
+      }, 300000); // 5 minutes
+    }, 1500); 
   </script>
 </body>
 
