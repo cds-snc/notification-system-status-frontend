@@ -1,18 +1,18 @@
 [
     {
-        "component": "api",
+        "id": "api",
         "status": "up"
     },
     {
-        "component": "admin",
+        "id": "admin",
         "status": "down"
     },
     {
-        "component": "email",
+        "id": "email",
         "status": "degraded"
     },
     {
-        "component": "sms",
+        "id": "sms",
         "status": "up"
     }
 ]
