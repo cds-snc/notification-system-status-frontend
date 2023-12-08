@@ -1,5 +1,9 @@
 /** 
  * This module takes care of switching the UI language between English and French.
+ * 
+ * It exposes one function at the global scope:
+ * - SwitchLanguage() - switches language
+ * - LoadTranslations() - loads the translations
  */
 (function () {
     const STRINGS = {
@@ -23,19 +27,46 @@
             en: "Take me back!",
             fr: "Reprends moi !",
         },
+        api: {
+            en: "GC Notify API",
+            fr: "API Notification GC",
+        },
+        admin: {
+            en: "GC Notify Website",
+            fr: "Site web Notification GC",
+        },
+        email: {
+            en: "Email sending",
+            fr: "Envoi de courriel",
+        },
+        sms: {
+            en: "Text message sending",
+            fr: "Envoi de message texte",
+        },
+        status_up: {
+            en: "Up",
+            fr: "En ligne",
+        },
+        status_down: {
+            en: "Down",
+            fr: "Hors ligne",
+        },
+        status_degraded: {
+            en: "Degraded",
+            fr: "Dégradé",
+        },        
+        status_loading: {
+            en: "Loading...",
+            fr: "Chargement...",
+        },            
     }
+    /**
+     * Switches the UI language between English and French.
+     * 
+     * @param {buttonId} Id of the UI element to use as the language switcher
+     * @param {onComplete} Callback function to run after the language switch 
+     */
     window.SwitchLanguage = function({ buttonId, onComplete }) {
-        
-        // Iterate through all elements with the `data-i18n` attribute and replace
-        // the innerHTML with the appropriate translation.
-        function load_translations() {
-            document.querySelectorAll('[data-i18n]').forEach(function (el) {
-                var key = el.getAttribute('data-i18n');
-                var lang = document.documentElement.lang || 'en';
-                el.innerHTML = STRINGS[key][lang];
-            });
-        }
-
         // set the language based on the URL hash
         if (window.location.hash == '#fr') {
             document.documentElement.lang = 'fr';
@@ -62,4 +93,20 @@
         // run this once at the start (in addition to on every button press)
         onComplete();
     }
+    
+    /**
+     * Load the translations by iterating through all elements with the `data-i18n`
+     * attribute and replacing the innerHTML with the appropriate translation.
+     */
+    function load_translations() {
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            var lang = document.documentElement.lang || 'en';
+            if (!STRINGS[key]) {
+                console.error('Missing translation for ' + key);
+            }
+            el.innerHTML = STRINGS[key][lang];
+        });
+    }
+    window.LoadTranslations = load_translations;
 })();

@@ -47,7 +47,10 @@
     <link href="./css/index.css" rel="stylesheet" />
   </head>
 
-  <body class="font-sans leading-normal tracking-normal gradient">
+  <body
+    class="leading-normal tracking-normal gradient"
+    style="font-family: 'Source Sans Pro', sans-serif"
+  >
     <!--Nav-->
 
     <nav id="header" class="fixed w-full z-30 top-0 text-white bg-darken">
@@ -59,13 +62,11 @@
             <span
               class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
             >
-              <i class="ph-fill ph-chat"></i>
-              <h1
-                class="font-heading font-[375] inline-block"
-                data-i18n="site_title"
-              >
-                GC Notify System Status
-              </h1>
+              <i
+                class="text-4xl fa-solid fa-envelope-open-text"
+                aria-hidden="true"
+              ></i>
+              <span data-i18n="site_title">GC Notify System Status</span>
             </span>
           </div>
           <div class="block lg:hidden pr-4">
@@ -90,10 +91,10 @@
             <input type="checkbox" class="checkbox" id="checkbox" />
             <label
               for="checkbox"
-              class="text-white checkbox-label mr-4 focus:outline focus:outline-2 focus:outline-red-500 transition"
+              class="checkbox-label mr-4 focus:outline focus:outline-2 focus:outline-red-500 transition"
             >
-              <i class="ph-fill ph-moon"></i>
-              <i class="ph-fill ph-sun"></i>
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
               <span class="ball"></span>
             </label>
             <button
@@ -119,100 +120,19 @@
             class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-8 dark:bg-gray-800 dark:border-gray-700"
           >
             <div class="flex items-center justify-between mb-4">
-              <h3
+              <h5
                 class="text-xl font-bold leading-none text-gray-900 dark:text-white ml-2"
               >
                 Component
-              </h3>
+              </h5>
               <p class="font-medium text-black dark:text-white mr-2">Status</p>
             </div>
             <div class="flow-root">
               <ul
                 role="list"
                 class="divide-y divide-gray-200 dark:divide-gray-700"
-              >
-                <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                  <div class="flex items-center text-gray-900 dark:text-white">
-                    <i class="text-3xl ph ph-terminal-window"></i>
-
-                    <div class="flex-1 min-w-0 ms-4">
-                      <p class="truncate">GC Notify API</p>
-                      <p
-                        class="text-green-500 dark:text-green-300 font-bold truncate"
-                      >
-                        Up
-                      </p>
-                    </div>
-                    <div
-                      class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                    >
-                      <i
-                        class="text-green-500 dark:text-green-300 ph-fill text-3xl ph-check-circle"
-                      ></i>
-                    </div>
-                  </div>
-                </li>
-                <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                  <div class="flex items-center text-gray-900 dark:text-white">
-                    <i class="text-3xl ph ph-globe"></i>
-                    <div class="flex-1 min-w-0 ms-4">
-                      <p class="truncate">GC Notify Website</p>
-                      <p
-                        class="text-green-500 dark:text-green-300 font-bold truncate"
-                      >
-                        Up
-                      </p>
-                    </div>
-                    <div
-                      class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                    >
-                      <i
-                        class="text-green-500 dark:text-green-300 ph-fill text-3xl ph-check-circle"
-                      ></i>
-                    </div>
-                  </div>
-                </li>
-                <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                  <div class="flex items-center text-gray-900 dark:text-white">
-                    <i class="text-3xl ph ph-paper-plane-tilt"></i>
-                    <div class="flex-1 min-w-0 ms-4">
-                      <p class="truncate">Email sending</p>
-                      <p
-                        class="text-green-500 dark:text-green-300 font-bold truncate"
-                      >
-                        Up
-                      </p>
-                    </div>
-                    <div
-                      class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                    >
-                      <i
-                        class="text-green-500 dark:text-green-300 ph-fill text-3xl ph-check-circle"
-                      ></i>
-                    </div>
-                  </div>
-                </li>
-                <li class="py-3 sm:py-4 outline-offset-6" tabindex="0">
-                  <div class="flex items-center text-gray-900 dark:text-white">
-                    <i class="text-3xl ph ph-chat-text"></i>
-                    <div class="flex-1 min-w-0 ms-4">
-                      <p class="truncate">Text message sending</p>
-                      <p
-                        class="text-green-500 dark:text-green-300 font-bold truncate"
-                      >
-                        Up
-                      </p>
-                    </div>
-                    <div
-                      class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
-                    >
-                      <i
-                        class="text-green-500 dark:text-green-300 ph-fill text-3xl ph-check-circle"
-                      ></i>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                id="component_status_list"
+              ></ul>
             </div>
           </div>
           <!-- <img src="../dist/img/component-status-table.png" width="818px" /> -->
@@ -502,8 +422,11 @@
     </script>
 
     <script src="./js/articles.js"></script>
+    <!-- exposes `LoadIncidentHistory()` -->
+    <script src="./js/component_status.js"></script>
+    <!-- exposes `LoadComponentStatus()` -->
     <script src="./js/i18n.js"></script>
-
+    <!-- exposes `SwitchLanguage()` and `LoadTranslations()` -->
     <script type="text/javascript">
       /**
        * Setup language switching and load incident history when the language changes
@@ -518,6 +441,19 @@
           });
         },
       });
+
+      /**
+       * Load component status after a short delay
+       */
+      window.setTimeout(() => {
+        // Load the component status now
+        LoadComponentStatus(LoadTranslations);
+
+        // Load the component status again every 5 minutes
+        window.setInterval(() => {
+          LoadComponentStatus(LoadTranslations);
+        }, 300000); // 5 minutes
+      }, 1500);
     </script>
   </body>
 </html>
