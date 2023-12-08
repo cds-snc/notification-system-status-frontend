@@ -57,3 +57,7 @@ body {
   .bg-darken {
     background-color: rgba(0, 0, 0, 0.05);
   }
+
+  a {
+    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
+  }
