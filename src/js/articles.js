@@ -30,7 +30,7 @@
       incident_html = movies[0].content.rendered;
 
       // fix up h3's to use tailwind
-      incident_html = incident_html.replace(/wp-block-heading/g, 'text-3xl text-gray-800 dark:text-white font-bold leading-none mb-3 mt-10');
+      incident_html = incident_html.replace(/wp-block-heading/g, 'text-3xl text-gray-800 dark:text-gray-400 font-bold leading-none mb-3 mt-10');
 
       // remove h2
       incident_html = incident_html.replace(/<h2.*\/h2>/g, '');
