@@ -3,61 +3,69 @@
 @tailwind utilities;
 
 body {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .checkbox {
-    opacity: 0;
-    position: absolute;
-  }
-  
-  .checkbox-label {
-    background-color: #111;
-    width: 50px;
-    height: 26px;
-    border-radius: 50px;
-    position: relative;
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    outline: 6px solid transparent;
-  }
-  
-  .fa-moon {color: #f1c40f;}
-  
-  .fa-sun {color: #f39c12;}
-  
-  .checkbox-label .ball {
-    background-color: #fff;
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-  }
-  
-  .checkbox:checked + .checkbox-label .ball {
-    transform: translateX(24px);
-  }
+  opacity: 0;
+  position: absolute;
+}
 
-  .checkbox-label:hover  {
-    outline-color: #f1c40f;
-  }
-  .checkbox:focus ~ .checkbox-label, button:focus {
-    /* outline-color: blue; */
-    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 191, 71) 0px 0px 0px 7px;
-  }
-  button:focus-visible {
-    outline: none;
-  }
-  .bg-darken {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: 6px solid transparent;
+}
 
-  a {
-    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
-  }
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.checkbox-label:hover {
+  outline-color: #f1c40f;
+}
+
+.checkbox:focus~.checkbox-label,
+button:focus {
+  /* outline-color: blue; */
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 191, 71) 0px 0px 0px 7px;
+}
+
+button:focus-visible {
+  outline: none;
+}
+
+.bg-darken {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+a {
+  @apply font-medium text-blue-500 hover:underline;
+}
