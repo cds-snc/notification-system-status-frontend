@@ -1,0 +1,18 @@
+[
+    {
+        "component": "api",
+        "status": "up"
+    },
+    {
+        "component": "admin",
+        "status": "down"
+    },
+    {
+        "component": "email",
+        "status": "degraded"
+    },
+    {
+        "component": "sms",
+        "status": "up"
+    }
+]
