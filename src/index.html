@@ -30,7 +30,6 @@
 
 <body class="leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', sans-serif">
   <!--Nav-->
-  
   <nav id="header" class="fixed w-full z-30 top-0 text-white bg-darken">
     <div class="container max-w-5xl mx-auto m-6">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
@@ -53,7 +52,8 @@
           class="w-full flex-grow lg:flex lg:items-center justify-end lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
           id="nav-content">
           <input type="checkbox" class="checkbox" id="checkbox" />
-          <label for="checkbox" class="checkbox-label mr-4  focus:outline focus:outline-2 focus:outline-red-500 transition">
+          <label for="checkbox"
+            class="checkbox-label mr-4  focus:outline focus:outline-2 focus:outline-red-500 transition">
             <i class="fas fa-moon"></i>
             <i class="fas fa-sun"></i>
             <span class="ball"></span>
@@ -71,7 +71,8 @@
     <div class="container max-w-5xl mb-12 px-3 mx-auto flex flex-wrap flex-row items-center">
       <!--Left Col-->
       <div class="flex flex-col w-full mt-16 mb-6 justify-center items-center text-left">
-        <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div
+          class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
           <div class="flex items-center justify-between mb-4">
             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white ml-2">
               Component
@@ -80,7 +81,7 @@
           </div>
           <div class="flow-root">
             <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700" id="component_status_list">
-         
+
             </ul>
           </div>
         </div>
@@ -316,23 +317,23 @@
     }
   </script>
 
-  <script src="./js/articles.js"></script>          <!-- exposes `LoadIncidentHistory()` -->
-  <script src="./js/component_status.js"></script>  <!-- exposes `LoadComponentStatus()` -->
-  <script src="./js/i18n.js"></script>              <!-- exposes `SwitchLanguage()` and `LoadTranslations()` -->
+  <script src="./js/articles.js"></script> <!-- exposes `LoadIncidentHistory()` -->
+  <script src="./js/component_status.js"></script> <!-- exposes `LoadComponentStatus()` -->
+  <script src="./js/i18n.js"></script> <!-- exposes `SwitchLanguage()` and `LoadTranslations()` -->
   <script type="text/javascript">
     /**
      * Setup language switching and load incident history when the language changes
      */
     SwitchLanguage({
-      buttonId: 'navAction', 
-      onComplete: function() {
+      buttonId: 'navAction',
+      onComplete: function () {
         LoadIncidentHistory({
-          lang: document.documentElement.lang, 
-          loaderId: 'history-loading', 
+          lang: document.documentElement.lang,
+          loaderId: 'history-loading',
           contentId: 'history'
-        }); 
+        });
       }
-    });    
+    });
 
     /**
      * Load component status after a short delay
