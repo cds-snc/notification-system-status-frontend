@@ -41,7 +41,7 @@
     },
     unknown: {
       text: '<span data-i18n="status_loading">Loading...</span>',
-      icon: "ph-fill ph-question",
+      icon: "ph ph-spinner",
       color: "text-gray-500",
     },
   };
