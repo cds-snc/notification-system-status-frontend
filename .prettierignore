@@ -1,0 +1,3 @@
+# Ignore minified js:
+dist/
+node_modules/

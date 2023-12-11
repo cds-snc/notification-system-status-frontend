@@ -56,6 +56,8 @@ body {
 button:focus {
   /* outline-color: blue; */
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 191, 71) 0px 0px 0px 7px;
+
+
 }
 
 button:focus-visible {
