@@ -47,10 +47,7 @@
     <link href="./css/index.css" rel="stylesheet" />
   </head>
 
-  <body
-    class="leading-normal tracking-normal gradient"
-    style="font-family: 'Source Sans Pro', sans-serif"
-  >
+  <body class="leading-normal tracking-normal gradient">
     <!--Nav-->
 
     <nav id="header" class="fixed w-full z-30 top-0 text-white bg-darken">
@@ -58,16 +55,14 @@
         <div
           class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
         >
-          <div class="pl-4 flex items-center">
-            <span
-              class="no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+          <div class="flex gap-4 items-center text-2xl lg:text-4xl">
+            <i class="ph-fill ph-chat text-4xl" aria-hidden="true"></i>
+            <h1
+              class="inline-block font-heading font-[375]"
+              data-i18n="site_title"
             >
-              <i
-                class="text-4xl fa-solid fa-envelope-open-text"
-                aria-hidden="true"
-              ></i>
-              <span data-i18n="site_title">GC Notify System Status</span>
-            </span>
+              GC Notify System Status
+            </h1>
           </div>
           <div class="block lg:hidden pr-4">
             <button
@@ -93,8 +88,8 @@
               for="checkbox"
               class="checkbox-label mr-4 focus:outline focus:outline-2 focus:outline-red-500 transition"
             >
-              <i class="fas fa-moon"></i>
-              <i class="fas fa-sun"></i>
+              <i class="text-white ph-fill ph-moon"></i>
+              <i class="text-white ph-fill ph-sun"></i>
               <span class="ball"></span>
             </label>
             <button
