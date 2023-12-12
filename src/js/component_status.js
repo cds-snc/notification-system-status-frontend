@@ -8,47 +8,47 @@
   const COMPONENTS = {
     api: {
       id: "api",
-      icon: "code",
+      icon: "ph ph-terminal-window",
     },
     admin: {
       id: "admin",
-      icon: "desktop",
+      icon: "ph ph-globe",
     },
     email: {
       id: "email",
-      icon: "envelope",
+      icon: "ph ph-paper-plane-tilt",
     },
     sms: {
       id: "sms",
-      icon: "comment",
+      icon: "ph ph-chat-text",
     },
   };
   const COMPONENT_STATES = {
     up: {
       text: '<span data-i18n="status_up">Up</span>',
-      icon: "fa-regular fa-circle-check",
-      color: "text-green-700 dark:text-green-300",
+      icon: "ph-fill ph-check-circle",
+      color: "text-green-500 dark:text-green-300",
     },
     down: {
       text: '<span data-i18n="status_down">Down</span>',
-      icon: "fa-solid fa-circle-exclamation",
-      color: "text-red-600 dark:text-red-400",
+      icon: "ph-fill ph-x-circle",
+      color: "text-red-500 dark:text-red-300",
     },
     degraded: {
       text: '<span data-i18n="status_degraded">Degraded</span>',
-      icon: "fa-solid fa-triangle-exclamation",
-      color: "text-yellow-700 dark:text-yellow-500",
+      icon: "ph-fill ph-warning-circle",
+      color: "text-yellow-500 dark:text-yellow-300",
     },
     unknown: {
       text: '<span data-i18n="status_loading">Loading...</span>',
-      icon: "fa-solid fa-spinner fa-spin",
-      color: "text-neutral-500",
+      icon: "animate-spin ph ph-circle-notch",
+      color: "text-gray-500",
     },
   };
   const COMPONENT_HTML = ({ component_id, component_status }) => `
     <li class="py-3 sm:py-4 outline-offset-6" tabindex="0" id="${component_id}">
-      <div class="flex items-start">
-        <i class="text-xl mt-1 mr-4 ml-3 fa-solid fa-${COMPONENTS[component_id].icon} text-gray-900 dark:text-white"></i>
+      <div class="flex items-center">
+        <i class="text-3xl mt-1 mr-4 ml-3 ${COMPONENTS[component_id].icon} text-gray-900 dark:text-white"></i>
         <div class="flex-1 min-w-0 ms-4">
           <p class="text-gray-900 truncate dark:text-white">
             <span data-i18n="${component_id}"></span>
