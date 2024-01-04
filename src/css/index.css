@@ -6,6 +6,23 @@ body {
   background-color: #f9f9f9;
 }
 
+/**
+ * Utility classes
+ */
+.bg-darken {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/**
+ * Default element styles
+ */
+a {
+  @apply font-medium text-blue-500 dark:text-blue-600 hover:underline;
+}
+
+/**
+ * Dark mode switch
+ */
 .checkbox {
   opacity: 0;
   position: absolute;
@@ -65,14 +82,11 @@ button:focus-visible {
   outline: none;
 }
 
-.bg-darken {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-a {
-  @apply font-medium text-blue-500 dark:text-blue-600 hover:underline;
-}
-
+/**
+ * Navbar
+ * ---
+ * Shrink navbar when page scrolls
+ */
 nav > div {
   transition: 0.15s all;
   padding-left: 1rem;
