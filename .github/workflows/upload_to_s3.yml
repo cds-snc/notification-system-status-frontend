@@ -46,7 +46,7 @@ jobs:
     - name: mv tailwind.css
       run: |
         echo ${{ github.repository }}
-        mv "tailwind.css" ${{ github.repository }}/src/tailwind.css
+        mv tailwind.css ${{ github.repository }}/src/tailwind.css
 
     - name: Upload to S3 bucket
       run: |
