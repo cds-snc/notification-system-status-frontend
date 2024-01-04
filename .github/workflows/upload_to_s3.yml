@@ -37,6 +37,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
+        aws-access-key-id: ${{ secrets.AWS_S3_BACKUP_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_S3_BACKUP_SECRET_ACCESS_KEY }}
         aws-region: ca-central-1
         role-to-assume: arn:aws:iam::${{ env.STAGING_ACCOUNT_ID }}:role/notification-lambdas-apply
         role-session-name: S3SystemStatus
@@ -50,8 +52,8 @@ jobs:
       run: |
         aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }} --exclude='*' --include='${{ github.repository }}/src/*'
 
-    - name: Notify Slack channel if this job failed
-      if: ${{ failure() }}
-      run: |
-        json='{"text":"System Status Frontend failed to upload <https://github.com/${{ github.repository }}>!"}'
-        curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_WEBHOOK }}
+    # - name: Notify Slack channel if this job failed
+    #   if: ${{ failure() }}
+    #   run: |
+    #     json='{"text":"System Status Frontend failed to upload <https://github.com/${{ github.repository }}>!"}'
+    #     curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_WEBHOOK }}
