@@ -28,12 +28,12 @@ jobs:
       with:
         node-version: '14'
 
-    - name: Generate Tailwind CSS file
-      run: |
-        npm install
-        npm run build
-        pwd
-        mv tailwind.css ${{ github.repository }}/src/tailwind.css
+    # - name: Generate Tailwind CSS file
+    #   run: |
+    #     npm install
+    #     npm run build
+    #     pwd
+    #     mv tailwind.css ${{ github.repository }}/src/tailwind.css
 
     # Staging upload
     - name: Configure AWS credentials
@@ -42,8 +42,6 @@ jobs:
         aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_KEY_ID }}
         aws-region: ca-central-1
-        # role-to-assume: arn:aws:iam::${{ env.STAGING_ACCOUNT_ID }}:role/notification-lambdas-apply
-        # role-session-name: S3SystemStatus
 
     - name: Upload to S3 bucket
       run: |
