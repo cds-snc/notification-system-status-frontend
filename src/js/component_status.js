@@ -4,7 +4,7 @@
  */
 (async function () {
   const STATUS_DATA_URL =
-    "https://raw.githubusercontent.com/cds-snc/notification-system-status-frontend/main/response.json";
+    `//response.json?${makeid(10)}`;
   const COMPONENTS = {
     api: {
       id: "api",
@@ -95,4 +95,22 @@
       i18n_loader();
     }
   };
+
+  /**
+   * Generates a random string of characters
+   * @param {int} length Length of the random string to generate
+   * @returns A random string of characters
+   */
+  function makeid(length) {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
 })();
