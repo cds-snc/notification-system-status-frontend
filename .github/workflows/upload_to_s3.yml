@@ -40,8 +40,8 @@ jobs:
         aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_KEY_ID }}
         aws-region: ca-central-1
-        role-to-assume: arn:aws:iam::${{ env.STAGING_ACCOUNT_ID }}:role/notification-lambdas-apply
-        role-session-name: S3SystemStatus
+        # role-to-assume: arn:aws:iam::${{ env.STAGING_ACCOUNT_ID }}:role/notification-lambdas-apply
+        # role-session-name: S3SystemStatus
 
     - name: mv tailwind.css
       run: |
