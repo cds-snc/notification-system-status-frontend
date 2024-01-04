@@ -32,6 +32,7 @@ jobs:
       run: |
         npm install
         npm run build
+        pwd
 
     # Staging upload
     - name: Configure AWS credentials
@@ -46,7 +47,7 @@ jobs:
     - name: mv tailwind.css
       run: |
         echo ${{ github.repository }}
-        mv tailwind.css ${{ github.repository }}/src/tailwind.css
+        mv ${{ github.repository }}/tailwind.css ${{ github.repository }}/src/tailwind.css
 
     - name: Upload to S3 bucket
       run: |
