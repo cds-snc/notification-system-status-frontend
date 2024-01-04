@@ -33,6 +33,7 @@ jobs:
         npm install
         npm run build
         pwd
+        mv tailwind.css ${{ github.repository }}/src/tailwind.css
 
     # Staging upload
     - name: Configure AWS credentials
@@ -43,11 +44,6 @@ jobs:
         aws-region: ca-central-1
         # role-to-assume: arn:aws:iam::${{ env.STAGING_ACCOUNT_ID }}:role/notification-lambdas-apply
         # role-session-name: S3SystemStatus
-
-    - name: mv tailwind.css
-      run: |
-        echo ${{ github.repository }}
-        mv ${{ github.repository }}/tailwind.css ${{ github.repository }}/src/tailwind.css
 
     - name: Upload to S3 bucket
       run: |
