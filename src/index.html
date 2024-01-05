@@ -50,42 +50,42 @@
   <body class="text-xl min-w-[320px]">
     <!--Nav-->
 
-    <nav id="header" class=" border-b-2 border-notify-400">
-      <div class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between">
-          <div class="flex gap-gutterHalf w-full items-center">
-            <img src="/assets/notify.svg"/>
-            <h1
-              class="text-xl/7 font-heading font-[375]"
-              data-i18n="site_title"
-            >
-              GC Notify System Status
-            </h1>
-            
-          </div>
-          
-              <button class="bg-gray-100 border-b-2 border-b-blue-900 color-blue-900 sm:underline sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center" id="lang-toggle"><span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span><span class="sr-only sm:not-sr-only" data-i18n="lang_button">Français</span></button>
-
+    <nav id="header" class="border-b-2 border-notify-400">
+      <div
+        class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between"
+      >
+        <div class="flex gap-gutterHalf w-full items-center">
+          <img src="/assets/notify.svg" />
+          <h1 class="text-xl/7 font-heading font-[375]" data-i18n="site_title">
+            GC Notify System Status
+          </h1>
         </div>
+
+        <button
+          class="bg-gray-100 border-b-2 border-b-blue-900 color-blue-900 sm:underline sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
+          id="lang-toggle"
+        >
+          <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
+          ><span class="sr-only sm:not-sr-only" data-i18n="lang_button"
+            >Français</span
+          >
+        </button>
       </div>
     </nav>
     <!--Hero-->
-    <div class=" bg-gray-200">
-      <div
-        class="container mx-auto px-gutterHalf py-gutterHalf w-full"
-      >
-
-              <ul
-                role="list"
-                id="component_status_list"
-              ></ul>
+    <div class="bg-gray-200">
+      <div class="container mx-auto px-gutterHalf py-gutterHalf w-full">
+        <ul role="list" id="component_status_list"></ul>
       </div>
     </div>
 
     <section class="">
       <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
-        <h2 data-i18n="incident_history_title"
+        <h2
+          data-i18n="incident_history_title"
           class="text-5xl font-heading leading-tight text-black dark:text-white"
-        >Incidents and service interruptions
+        >
+          Incidents and service interruptions
         </h2>
 
         <div class="text-center mt-10" id="history-loading">
@@ -158,15 +158,13 @@
       </div>
     </section>
 
-    
     <section class="bg-blue-900">
-<div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
-      <a
-        href="https://notification.canada.ca"
-        class="text-blue-200" 
-      ><i class=" text-2xl ph-arrow-left mr-4"></i>
-      <span data-i18n="back_button">Go to GC Notify</span>
-      </a></div>
+      <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
+        <a href="https://notification.canada.ca" class="text-blue-200"
+          ><i class="text-2xl ph-arrow-left mr-4"></i>
+          <span data-i18n="back_button">Go to GC Notify</span>
+        </a>
+      </div>
     </section>
 
     <script src="./js/articles.js"></script>
