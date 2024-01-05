@@ -71,7 +71,7 @@ describe('System status', () => {
     });
   });
 
-  context.only('Dark mode', () => {
+  context('Dark mode', () => {
     it('loads in light mode', () => {
       interceptExternalRequests();
       cy.visit('/');
