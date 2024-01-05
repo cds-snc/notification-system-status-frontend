@@ -27,40 +27,38 @@
     up: {
       text: '<span data-i18n="status_up">Up</span>',
       icon: "ph-fill ph-check-circle",
-      color: "text-green-500 dark:text-green-300",
+      color: "text-green-700 dark:text-green-300",
+      border: "border-green-500",
     },
     down: {
       text: '<span data-i18n="status_down">Down</span>',
       icon: "ph-fill ph-x-circle",
-      color: "text-red-500 dark:text-red-300",
+      color: "text-red-700 dark:text-red-300",
+      border: "border-red-500",
     },
     degraded: {
       text: '<span data-i18n="status_degraded">Degraded</span>',
       icon: "ph-fill ph-warning-circle",
-      color: "text-yellow-500 dark:text-yellow-300",
+      color: "text-yellow-700 dark:text-yellow-300",
+      border: "border-yellow-500",
     },
     unknown: {
       text: '<span data-i18n="status_loading">Loading...</span>',
       icon: "animate-spin ph ph-circle-notch",
-      color: "text-gray-500",
+      color: "text-gray-700",
+      border: "border-gray-300",
     },
   };
   const COMPONENT_HTML = ({ component_id, component_status }) => `
-    <li class="py-3 sm:py-4 outline-offset-6" tabindex="0" id="${component_id}">
-      <div class="flex items-center">
-        <i class="text-3xl mt-1 mr-4 ml-3 ${COMPONENTS[component_id].icon} text-gray-900 dark:text-white"></i>
-        <div class="flex-1 min-w-0 ms-4">
-          <p class="text-gray-900 truncate dark:text-white">
-            <span data-i18n="${component_id}"></span>
-          </p>
-          <p class="${component_status.color} font-bold truncate dark:text-gray-400">
-            ${component_status.text}
-          </p>
-        </div>
-        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-          <i class="${component_status.color} text-2xl ${component_status.icon} mr-4"></i>
-        </div>
-      </div>
+    <li class="flex items-start p-4 mb-4 gap-2 bg-white border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
+    <i class="text-3xl ${COMPONENTS[component_id].icon}"></i>
+      <div class="flex flex-wrap gap-2 items-baseline justify-between w-full py-1">
+        <span data-i18n="${component_id}"></span>
+      
+      <div class="flex gap-2 items-center ${component_status.color}">
+        ${component_status.text}
+        <i class=" text-2xl ${component_status.icon} mr-4"></i>
+      </div></div>
     </li>`;
 
   // Render the initial component status list
