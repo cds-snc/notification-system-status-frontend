@@ -32,8 +32,8 @@ jobs:
       run: |
         npm install
         npm run build
-        pwd
-        mv ./dist/css/index.css src/css/index.css
+    # pwd
+    # mv ./dist/css/index.css src/css/index.css
 
     # Staging upload
     - name: Configure AWS credentials
