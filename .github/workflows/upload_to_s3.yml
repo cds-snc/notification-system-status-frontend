@@ -45,7 +45,7 @@ jobs:
 
     - name: Upload to S3 bucket
       run: |
-        cd ${{ github.repository }}/src
+        cd src
         aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
     # - name: Notify Slack channel if this job failed
     #   if: ${{ failure() }}
