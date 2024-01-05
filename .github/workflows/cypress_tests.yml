@@ -39,6 +39,5 @@ jobs:
           record: false
           config: video=false,screenshotOnRunFailure=false
           build: npx cypress info
-          working-directory: cypress
           spec: |
             cypress/e2e/frontend.cy.js
