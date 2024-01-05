@@ -8,7 +8,7 @@
     "build": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css; cp ./src/index.html ./dist; mkdir -p ./dist/js && cp ./src/js/* ./dist/js",
     "watch-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css --watch",
     "watch-html": "npx copy-and-watch --watch src/**/*.html dist/ & npx copy-and-watch --watch src/js/*.js dist/js",
-    "dev": "npx serve dist/ & npm run watch-css & npm run watch-html",
+    "dev": "cp response.json dist & npx serve dist/ & npm run watch-css & npm run watch-html",
     "format": "npx prettier --config ./.prettierrc --ignore-path ./..prettierignore src/ --write"
   },
   "repository": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/cds-snc/notification-system-status-frontend#readme",
   "devDependencies": {
     "copy-and-watch": "^0.1.6",
+    "cypress": "^13.6.2",
     "prettier": "3.1.1",
     "serve": "^14.2.1",
     "tailwindcss": "^3.3.6"
