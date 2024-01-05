@@ -28,12 +28,12 @@ jobs:
       with:
         node-version: '14'
 
-    # - name: Generate Tailwind CSS file
-    #   run: |
-    #     npm install
-    #     npm run build
-    #     pwd
-    #     mv tailwind.css ${{ github.repository }}/src/tailwind.css
+    - name: Generate Tailwind CSS file
+      run: |
+        npm install
+        npm run build
+        pwd
+        mv index.css ${{ github.repository }}/src/index.css
 
     # Staging upload
     - name: Configure AWS credentials
@@ -45,7 +45,8 @@ jobs:
 
     - name: Upload to S3 bucket
       run: |
-        aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }} --exclude='*' --include='src/*'
+        cd ${{ github.repository }}/src
+        aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
     # - name: Notify Slack channel if this job failed
     #   if: ${{ failure() }}
     #   run: |
