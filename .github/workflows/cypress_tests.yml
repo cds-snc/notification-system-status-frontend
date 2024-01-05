@@ -30,6 +30,7 @@ jobs:
       - name: install deps
         run: |
           npm install
+          touch dist/serve.json
 
       - name: run the app
         run: |
@@ -45,4 +46,4 @@ jobs:
           build: npx cypress info
           working-directory: tests_cypress
           spec: |
-            cypress/e2e/admin/a11y/app_pages.cy.js
+            cypress/e2e/frontend.cy.js
