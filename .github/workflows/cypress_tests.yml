@@ -29,6 +29,7 @@ jobs:
 
       - name: run the app
         run: |
+          npm install
           npm run dev 
 
       - name: Run the cypress tests
