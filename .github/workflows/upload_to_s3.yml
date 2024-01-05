@@ -32,7 +32,6 @@ jobs:
       run: |
         npm install
         npm run build
-    # mv ./dist/css/index.css src/css/index.css
 
     # Staging upload
     - name: Configure AWS credentials
@@ -49,8 +48,7 @@ jobs:
 
     - name: Invalidate CloudFront cache
       run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION
- }} --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION}} --paths "/*"
 
     # - name: Notify Slack channel if this job failed
     #   if: ${{ failure() }}
