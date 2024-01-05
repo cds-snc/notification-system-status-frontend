@@ -32,7 +32,6 @@ jobs:
       run: |
         npm install
         npm run build
-    # pwd
     # mv ./dist/css/index.css src/css/index.css
 
     # Staging upload
@@ -45,7 +44,7 @@ jobs:
 
     - name: Upload to S3 bucket
       run: |
-        cd src
+        cd ./dist
         aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
     # - name: Notify Slack channel if this job failed
     #   if: ${{ failure() }}
