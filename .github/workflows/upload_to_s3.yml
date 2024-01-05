@@ -46,6 +46,12 @@ jobs:
       run: |
         cd ./dist
         aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
+
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION
+ }} --paths "/*"
+
     # - name: Notify Slack channel if this job failed
     #   if: ${{ failure() }}
     #   run: |
