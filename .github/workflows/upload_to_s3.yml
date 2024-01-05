@@ -33,7 +33,7 @@ jobs:
         npm install
         npm run build
         pwd
-        mv index.css ${{ github.repository }}/src/index.css
+        mv ./dist/css/index.css ${{ github.repository }}/src/index.css
 
     # Staging upload
     - name: Configure AWS credentials
