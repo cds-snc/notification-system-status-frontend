@@ -75,14 +75,24 @@ describe('System status', () => {
     it('loads in light mode', () => {
       interceptExternalRequests();
       cy.visit('/');
-      cy.getByTestId('main_section').should('have.css', 'backgroundColor', 'rgb(255, 255, 255)')
+      // cy.getByTestId('main_section').should('have.css', 'backgroundColor', 'rgb(255, 255, 255)')
+      cy.getByTestId('main_section')
+        .invoke('css', 'background-color')
+        .then((bgcolor) => {
+          expect(bgcolor).to.eq('rgb(255, 255, 255)')
+        })
     });
 
     it('can switch to dark mode', () => {
       interceptExternalRequests();
       cy.visit('/');
       cy.getByTestId('darkmode_switch').check({ force: true });
-      cy.getByTestId('main_section').should('have.css', 'backgroundColor', 'rgb(52, 60, 69)')
+      // cy.getByTestId('main_section').should('have.css', 'backgroundColor', 'rgb(52, 60, 69)')
+      cy.getByTestId('main_section')
+        .invoke('css', 'background-color')
+        .then((bgcolor) => {
+          expect(bgcolor).to.eq('rgb(52, 60, 69)')
+        })
     });
   });
 })
