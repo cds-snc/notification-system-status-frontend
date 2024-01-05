@@ -8,7 +8,7 @@
     "build": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css; cp ./src/index.html ./dist; mkdir -p ./dist/js && cp ./src/js/* ./dist/js",
     "watch-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css --watch",
     "watch-html": "npx copy-and-watch --watch src/**/*.html dist/ & npx copy-and-watch --watch src/js/*.js dist/js",
-    "dev": "cp response.json dist & npx serve dist/ & npm run watch-css & npm run watch-html",
+    "dev": "mkdir dist & echo \"{}\" >dist/serve.json & cp response.json dist & npx serve dist/ & npm run watch-css & npm run watch-html",
     "format": "npx prettier --config ./.prettierrc --ignore-path ./..prettierignore src/ --write"
   },
   "repository": {
