@@ -30,7 +30,6 @@ jobs:
       - name: install deps
         run: |
           npm install
-          touch dist/serve.json
 
       - name: run the app
         run: |
