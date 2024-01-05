@@ -4,7 +4,7 @@
  */
 (async function () {
   const STATUS_DATA_URL =
-    `//response.json?${makeid(10)}`;
+    `/response.json?${makeid(10)}`;
   const COMPONENTS = {
     api: {
       id: "api",
