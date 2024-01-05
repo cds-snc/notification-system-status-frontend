@@ -83,7 +83,7 @@
             class="w-full flex-grow lg:flex lg:items-center justify-end lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
             id="nav-content"
           >
-            <input type="checkbox" class="checkbox" id="checkbox" />
+            <input type="checkbox" class="checkbox" id="checkbox" data-testid="darkmode_switch"/>
             <label
               for="checkbox"
               class="checkbox-label mr-4 focus:outline focus:outline-2 focus:outline-red-500 transition"
@@ -95,6 +95,7 @@
             <button
               id="navAction"
               class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow-lg opacity-75 transform transition hover:scale-105 duration-300 ease-in-out"
+              data-testid="lang_button"
             >
               <span data-i18n="lang_button">Français</span>
             </button>
@@ -113,6 +114,7 @@
         >
           <div
             class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+            data-testid="component_status_table"
           >
             <div class="flex items-center justify-between mb-4">
               <h5
@@ -174,7 +176,7 @@
       </svg>
     </div>
 
-    <section class="bg-white dark:bg-gray-800 py-8 pr-6 pl-6">
+    <section class="bg-white dark:bg-gray-800 py-8 pr-6 pl-6" data-testid="main_section">
       <div class="container max-w-5xl mx-auto m-8">
         <h2
           class="w-full my-2 text-5xl font-normal font-heading leading-tight text-center text-gray-800 dark:text-white"
@@ -255,7 +257,7 @@
           </div>
         </div>
 
-        <div id="history" class="dark:text-white"></div>
+        <div id="history" class="dark:text-white" data-testid="history"></div>
       </div>
     </section>
 
