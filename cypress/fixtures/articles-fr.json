@@ -1,0 +1,180 @@
+[
+    {
+        "id": 879,
+        "date": "2023-05-25T10:26:16",
+        "date_gmt": "2023-05-25T14:26:16",
+        "guid": {
+            "rendered": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/?page_id=879"
+        },
+        "modified": "2023-11-06T10:34:56",
+        "modified_gmt": "2023-11-06T15:34:56",
+        "slug": "etat-du-systeme",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/",
+        "title": {
+            "rendered": "\u00c9tat du syst\u00e8me"
+        },
+        "content": {
+            "rendered": "\n<h2 class=\"wp-block-heading\" id=\"h-incidents-et-interruptions-de-service\">Incidents et interruptions de service<\/h2>\n\n\n\n<h3 class=\"wp-block-heading\" id=\"h-9-nbsp-septembre-2023-nbsp-vulnerabilite-liee-aux-url\">INCIDENT CYPRESS<\/h3>\n\n\n\n<p>En utilisant une URL sp\u00e9ciale, une tierce partie aurait pu rediriger les gens cherchant \u00e0 acc\u00e9der \u00e0 Notification GC vers un autre site. Nous avons d\u00e9couvert ce probl\u00e8me de s\u00e9curit\u00e9 le 9&nbsp;septembre&nbsp;2023 et l\u2019avons corrig\u00e9e le 10&nbsp;septembre&nbsp;&nbsp;023.<br><br>Si vous avez acc\u00e9d\u00e9 au site en utilisant l\u2019URL dans la barre d\u2019adresse ou \u00e0 l\u2019aide d\u2019un favoris, cette vuln\u00e9rabilit\u00e9 n\u2019a pas eu d\u2019incidence pour vous. Pour en savoir plus sur ce probl\u00e8me, lisez <a href=\"https:\/\/github.com\/cds-snc\/notification-terraform\/security\/advisories\/GHSA-qf39-3crq-hpw3\">l\u2019avis de s\u00e9curit\u00e9 sur GitHub<\/a>.<\/p>\n\n\n\n<h3 class=\"wp-block-heading\" id=\"h-1-aout-2023-degradations-relatives-aux-courriels\">1 ao\u00fbt 2023:   D\u00e9gradations relatives aux courriels<\/h3>\n\n\n\n<p><em>Mise \u00e0 jour : cet incident est maintenant r\u00e9solu.<\/em><\/p>\n\n\n\n<p>Notre syst\u00e8me conna\u00eet actuellement des d\u00e9gradations relatives aux courriels. Notre \u00e9quipe m\u00e8ne une enqu\u00eate sur ce probl\u00e8me.<\/p>\n\n\n\n<h3 class=\"wp-block-heading\" id=\"h-31-mai-2023-nbsp-mesure-de-securite\">31 mai 2023&nbsp;: Mesure de s\u00e9curit\u00e9<\/h3>\n\n\n\n<p>Tou\u00b7te\u00b7s les utilisateur\u00b7rice\u00b7s doivent changer leur mot de passe&nbsp;:<\/p>\n\n\n\n<ul>\n<li>La s\u00e9curit\u00e9 de Notification GC n\u2019est pas compromise.<\/li>\n\n\n\n<li>Cette pr\u00e9caution est due \u00e0 une violation de la s\u00e9curit\u00e9 chez <a href=\"https:\/\/www.lastpass.com\/fr\">Lastpass<\/a>, un <a href=\"https:\/\/notification.canada.ca\/autres-services\">service utilis\u00e9 par Notification&nbsp;GC<\/a>. Nous n\u2019utilisons pas Lastpass pour conserver les mots de passe d\u2019utilisateur\u00b7rice\u00b7s.<\/li>\n\n\n\n<li>Pour obtenir plus de d\u00e9tails sur la violation de s\u00e9curit\u00e9, lisez le <a href=\"https:\/\/blog.lastpass.com\/fr\/2023\/03\/nouvelles-informations-sur-lincident-de-securite-et-mesures-recommandees\/\">billet de blogue de Lastpass<\/a>.<\/li>\n<\/ul>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"\/>\n\n\n\n<p>Pour en savoir plus sur les pratiques de Notification GC en mati\u00e8re de s\u00e9curit\u00e9, consultez notre <a href=\"https:\/\/notification.canada.ca\/securite\">avis de s\u00e9curit\u00e9<\/a>.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Incidents et interruptions de service 9&nbsp;septembre 2023&nbsp;: Vuln\u00e9rabilit\u00e9 li\u00e9e aux URL En utilisant une URL sp\u00e9ciale, une tierce partie aurait pu rediriger les gens cherchant \u00e0 acc\u00e9der \u00e0 Notification GC vers un autre site. Nous avons d\u00e9couvert ce probl\u00e8me de s\u00e9curit\u00e9 le 9&nbsp;septembre&nbsp;2023 et l\u2019avons corrig\u00e9e le 10&nbsp;septembre&nbsp;&nbsp;023. Si vous avez acc\u00e9d\u00e9 au site en\u2026 <a class=\"read-more\" href=\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/\">Read more<span class=\"wb-sl\"> of \u00c9tat du syst\u00e8me<\/span><\/a><\/p>\n",
+            "protected": false
+        },
+        "author": 64,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 0,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": {
+            "footnotes": ""
+        },
+        "slug_en": "system-status",
+        "slug_fr": "etat-du-systeme",
+        "id_en": 870,
+        "id_fr": 879,
+        "lang": "fr",
+        "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v21.6 (Yoast SEO v21.6) - https:\/\/yoast.com\/wordpress\/plugins\/seo\/ -->\n<title>\u00c9tat du syst\u00e8me - GC Notify<\/title>\n<meta name=\"robots\" content=\"noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" \/>\n<meta property=\"og:locale\" content=\"fr_FR\" \/>\n<meta property=\"og:type\" content=\"article\" \/>\n<meta property=\"og:title\" content=\"\u00c9tat du syst\u00e8me\" \/>\n<meta property=\"og:description\" content=\"Incidents et interruptions de service 9&nbsp;septembre 2023&nbsp;: Vuln\u00e9rabilit\u00e9 li\u00e9e aux URL En utilisant une URL sp\u00e9ciale, une tierce partie aurait pu rediriger les gens cherchant \u00e0 acc\u00e9der \u00e0 Notification GC vers un autre site. Nous avons d\u00e9couvert ce probl\u00e8me de s\u00e9curit\u00e9 le 9&nbsp;septembre&nbsp;2023 et l\u2019avons corrig\u00e9e le 10&nbsp;septembre&nbsp;&nbsp;023. Si vous avez acc\u00e9d\u00e9 au site en\u2026 Read more of \u00c9tat du syst\u00e8me\" \/>\n<meta property=\"og:url\" content=\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/\" \/>\n<meta property=\"og:site_name\" content=\"GC Notify\" \/>\n<meta property=\"article:modified_time\" content=\"2023-11-06T15:34:56+00:00\" \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta name=\"twitter:label1\" content=\"Est. reading time\" \/>\n\t<meta name=\"twitter:data1\" content=\"1 minute\" \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/\",\"url\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/\",\"name\":\"\u00c9tat du syst\u00e8me - GC Notify\",\"isPartOf\":{\"@id\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/#website\"},\"datePublished\":\"2023-05-25T14:26:16+00:00\",\"dateModified\":\"2023-11-06T15:34:56+00:00\",\"breadcrumb\":{\"@id\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/#breadcrumb\"},\"inLanguage\":\"fr-FR\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"\u00c9tat du syst\u00e8me\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/#website\",\"url\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/\",\"name\":\"GC Notify\",\"description\":\"GC Notify\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/?s={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}],\"inLanguage\":\"fr-FR\"}]}<\/script>\n<!-- \/ Yoast SEO Premium plugin. -->",
+        "yoast_head_json": {
+            "title": "\u00c9tat du syst\u00e8me - GC Notify",
+            "robots": {
+                "index": "noindex",
+                "follow": "follow",
+                "max-snippet": "max-snippet:-1",
+                "max-image-preview": "max-image-preview:large",
+                "max-video-preview": "max-video-preview:-1"
+            },
+            "og_locale": "fr_FR",
+            "og_type": "article",
+            "og_title": "\u00c9tat du syst\u00e8me",
+            "og_description": "Incidents et interruptions de service 9&nbsp;septembre 2023&nbsp;: Vuln\u00e9rabilit\u00e9 li\u00e9e aux URL En utilisant une URL sp\u00e9ciale, une tierce partie aurait pu rediriger les gens cherchant \u00e0 acc\u00e9der \u00e0 Notification GC vers un autre site. Nous avons d\u00e9couvert ce probl\u00e8me de s\u00e9curit\u00e9 le 9&nbsp;septembre&nbsp;2023 et l\u2019avons corrig\u00e9e le 10&nbsp;septembre&nbsp;&nbsp;023. Si vous avez acc\u00e9d\u00e9 au site en\u2026 Read more of \u00c9tat du syst\u00e8me",
+            "og_url": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/",
+            "og_site_name": "GC Notify",
+            "article_modified_time": "2023-11-06T15:34:56+00:00",
+            "twitter_card": "summary_large_image",
+            "twitter_misc": {
+                "Est. reading time": "1 minute"
+            },
+            "schema": {
+                "@context": "https:\/\/schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebPage",
+                        "@id": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/",
+                        "url": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/",
+                        "name": "\u00c9tat du syst\u00e8me - GC Notify",
+                        "isPartOf": {
+                            "@id": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/#website"
+                        },
+                        "datePublished": "2023-05-25T14:26:16+00:00",
+                        "dateModified": "2023-11-06T15:34:56+00:00",
+                        "breadcrumb": {
+                            "@id": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/#breadcrumb"
+                        },
+                        "inLanguage": "fr-FR",
+                        "potentialAction": [
+                            {
+                                "@type": "ReadAction",
+                                "target": [
+                                    "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "@id": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/etat-du-systeme\/#breadcrumb",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "\u00c9tat du syst\u00e8me"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/#website",
+                        "url": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/",
+                        "name": "GC Notify",
+                        "description": "GC Notify",
+                        "potentialAction": [
+                            {
+                                "@type": "SearchAction",
+                                "target": {
+                                    "@type": "EntryPoint",
+                                    "urlTemplate": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/?s={search_term_string}"
+                                },
+                                "query-input": "required name=search_term_string"
+                            }
+                        ],
+                        "inLanguage": "fr-FR"
+                    }
+                ]
+            }
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/pages\/879"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/users\/64"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/comments?post=879"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 11,
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/pages\/879\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 1172,
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/pages\/879\/revisions\/1172"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/articles.alpha.canada.ca\/notification-gc-notify\/fr\/wp-json\/wp\/v2\/media?parent=879"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]

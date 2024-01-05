@@ -1,0 +1,18 @@
+[
+  {
+      "id": "api",
+      "status": "down"
+  },
+  {
+      "id": "admin",
+      "status": "down"
+  },
+  {
+      "id": "email",
+      "status": "down"
+  },
+  {
+      "id": "sms",
+      "status": "down"
+  }
+]
