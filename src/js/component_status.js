@@ -52,7 +52,7 @@
   const COMPONENT_HTML = ({ component_id, component_status }) => `
     <li class="flex items-start p-4 gap-2 bg-white dark:bg-black border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
     <i class="text-3xl ${COMPONENTS[component_id].icon}"></i>
-      <div class="flex flex-wrap gap-2 items-baseline justify-between w-full py-1">
+      <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2 items-baseline justify-between w-full py-1">
         <span data-i18n="${component_id}"></span>
       
       <div class="flex gap-2 items-center ${component_status.color}">
