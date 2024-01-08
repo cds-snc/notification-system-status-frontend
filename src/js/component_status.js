@@ -50,7 +50,7 @@
     },
   };
   const COMPONENT_HTML = ({ component_id, component_status }) => `
-    <li class="flex items-start p-4 mb-4 gap-2 bg-white border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
+    <li class="flex items-start p-4 mb-4 gap-2 bg-white dark:bg-black border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
     <i class="text-3xl ${COMPONENTS[component_id].icon}"></i>
       <div class="flex flex-wrap gap-2 items-baseline justify-between w-full py-1">
         <span data-i18n="${component_id}"></span>

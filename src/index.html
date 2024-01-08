@@ -47,10 +47,10 @@
     <link href="./css/index.css" rel="stylesheet" />
   </head>
 
-  <body class="text-xl min-w-[320px]">
+  <body class="text-xl min-w-[320px] bg-white text-black dark:bg-black text-white">
     <!--Nav-->
 
-    <nav id="header" class="border-b-2 border-notify-400">
+    <nav id="header" class="border-b-2 border-notify-400 dark:bg-gray-900">
       <div
         class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between"
       >
@@ -62,7 +62,7 @@
         </div>
 
         <button
-          class="bg-gray-100 border-b-2 border-b-blue-900 color-blue-900 sm:underline sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
+          class="bg-gray-100 dark:bg-black border-b-2 border-blue-900 dark:border-blue-200 text-blue-900 dark:text-blue-200 sm:underline sm:dark:bg-transparent sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
           id="lang-toggle"
         >
           <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
@@ -73,7 +73,7 @@
       </div>
     </nav>
     <!--Hero-->
-    <div class="bg-gray-200">
+    <div class="bg-gray-200 dark:bg-gray-800">
       <div class="container mx-auto px-gutterHalf py-gutterHalf w-full">
         <ul role="list" id="component_status_list"></ul>
       </div>
