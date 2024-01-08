@@ -59,6 +59,11 @@ module.exports = {
         700: "#45610E",
       },
     },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+    },
     extend: {
       fontFamily: {
         sans: ["Noto Sans", "Arial", "sans-serif"],

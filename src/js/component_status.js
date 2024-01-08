@@ -45,12 +45,12 @@
     unknown: {
       text: '<span data-i18n="status_loading">Loading...</span>',
       icon: "animate-spin ph ph-circle-notch",
-      color: "text-gray-700",
+      color: "text-gray-700 dark:text-gray-300",
       border: "border-gray-300",
     },
   };
   const COMPONENT_HTML = ({ component_id, component_status }) => `
-    <li class="flex items-start p-4 mb-4 gap-2 bg-white dark:bg-black border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
+    <li class="flex items-start p-4 gap-2 bg-white dark:bg-black border-b-8 ${component_status.border}" tabindex="0" id="${component_id}">
     <i class="text-3xl ${COMPONENTS[component_id].icon}"></i>
       <div class="flex flex-wrap gap-2 items-baseline justify-between w-full py-1">
         <span data-i18n="${component_id}"></span>
