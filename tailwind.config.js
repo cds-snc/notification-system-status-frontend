@@ -2,7 +2,7 @@
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  darkMode: "class",
+  // darkMode: "class",
   content: ["./src/**/*.{html,js}"],
   theme: {
     colors: {
@@ -58,6 +58,11 @@ module.exports = {
         500: "#7E9F3C",
         700: "#45610E",
       },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
     },
     extend: {
       fontFamily: {

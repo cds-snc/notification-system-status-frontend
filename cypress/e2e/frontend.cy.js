@@ -8,7 +8,7 @@ const STATUSES = {
     fixture: 'all-down.json',
   },
   DEGRADED: {
-    text: 'Degraded',
+    text: 'Slow',
     fixture: 'all-degraded.json',
   },
   LOADING: {
@@ -68,21 +68,6 @@ describe('System status', () => {
       cy.visit('/');
       cy.getByTestId('lang_button').click();
       cy.getByTestId('lang_button').should('contain', 'English');
-    });
-  });
-
-  context('Dark mode', () => {
-    it('loads in light mode', () => {
-      interceptExternalRequests();
-      cy.visit('/');
-      cy.get('body').should('not.have.class', 'dark');
-    });
-
-    it('can switch to dark mode', () => {
-      interceptExternalRequests();
-      cy.visit('/');
-      cy.getByTestId('darkmode_switch').check({ force: true });
-      cy.get('body').should('have.class', 'dark');
     });
   });
 })

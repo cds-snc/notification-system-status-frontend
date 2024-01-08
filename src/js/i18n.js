@@ -15,6 +15,10 @@
       en: "Français",
       fr: "English",
     },
+    lang_abbr: {
+      en: "FR",
+      fr: "EN",
+    },
     incident_history_title: {
       en: "Incidents and service interruptions",
       fr: "Incidents et interruptions de service",
@@ -24,8 +28,8 @@
       fr: "Retour à Notification GC",
     },
     back_button: {
-      en: "Take me back!",
-      fr: "Reprends moi !",
+      en: "Go to GC Notify",
+      fr: "Allez à Notification GC",
     },
     api: {
       en: "GC Notify API",
@@ -52,8 +56,8 @@
       fr: "Hors ligne",
     },
     status_degraded: {
-      en: "Degraded",
-      fr: "Dégradé",
+      en: "Slow",
+      fr: "Lent",
     },
     status_loading: {
       en: "Loading...",
