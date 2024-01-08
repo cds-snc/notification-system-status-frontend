@@ -5,11 +5,11 @@
     },
     {
         "id": "admin",
-        "status": "down"
+        "status": "up"
     },
     {
         "id": "email",
-        "status": "degraded"
+        "status": "up"
     },
     {
         "id": "sms",
