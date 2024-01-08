@@ -56,8 +56,8 @@
       fr: "Hors ligne",
     },
     status_degraded: {
-      en: "Degraded",
-      fr: "Dégradé",
+      en: "Slow",
+      fr: "Lent",
     },
     status_loading: {
       en: "Loading...",
