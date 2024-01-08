@@ -53,11 +53,11 @@
           <p class="text-gray-900 truncate dark:text-white">
             <span data-i18n="${component_id}"></span>
           </p>
-          <p class="${component_status.color} font-bold truncate dark:text-gray-400">
+          <p class="${component_status.color} font-bold truncate dark:text-gray-400" data-testid="status_text">
             ${component_status.text}
           </p>
         </div>
-        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white" data-testid="status_icon">
           <i class="${component_status.color} text-2xl ${component_status.icon} mr-4"></i>
         </div>
       </div>
