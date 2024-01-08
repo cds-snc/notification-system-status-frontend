@@ -64,6 +64,7 @@
         <button
           class="bg-gray-100 dark:bg-black border-b-2 border-blue-900 dark:border-blue-200 text-blue-900 dark:text-blue-200 sm:underline sm:dark:bg-transparent sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
           id="lang-toggle"
+          data-testid="lang_button"
         >
           <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
           ><span class="sr-only sm:not-sr-only" data-i18n="lang_button"
@@ -75,11 +76,12 @@
     <!--Hero-->
     <div class="bg-gray-200 dark:bg-gray-800">
       <div class="container mx-auto px-gutterHalf py-gutterHalf w-full">
-        <ul role="list" id="component_status_list"></ul>
+        <ul role="list" id="component_status_list" data-testid="component_status_table"></ul>
       </div>
     </div>
 
-    <section class="">
+
+    <section class="" data-testid="main_section">
       <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
         <h2
           data-i18n="incident_history_title"
@@ -154,7 +156,7 @@
           </div>
         </div>
 
-        <div id="history" class="dark:text-white"></div>
+        <div id="history" class="dark:text-white" data-testid="history"></div>
       </div>
     </section>
 
