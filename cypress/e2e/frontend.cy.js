@@ -71,7 +71,7 @@ describe('System status', () => {
     });
   });
 
-  context.only('a11y', () => {
+  context('a11y', () => {
     it('has no detectable a11y violations on load', () => {
       interceptExternalRequests();
       cy.visit('/');
