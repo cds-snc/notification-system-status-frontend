@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const htmlvalidate = require("cypress-html-validate/plugin");
 
 module.exports = defineConfig({
   e2e: {
@@ -6,7 +7,11 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 850,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      htmlvalidate.install(on,  {
+        rules: {
+          "require-sri": "off",
+        },
+      });
     },
   },
 });

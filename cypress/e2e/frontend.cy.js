@@ -70,4 +70,19 @@ describe('System status', () => {
       cy.getByTestId('lang_button').should('contain', 'English');
     });
   });
+
+  context('a11y', () => {
+    it('has no detectable a11y violations on load', () => {
+      interceptExternalRequests();
+      cy.visit('/');
+      cy.injectAxe();
+      cy.checkA11y();
+    });
+
+    it('has no HTML validation errors', () => {
+      interceptExternalRequests();
+      cy.visit('/');
+      cy.htmlvalidate();
+    });
+  });
 })
