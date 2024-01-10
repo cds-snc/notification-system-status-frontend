@@ -13,62 +13,83 @@ env:
   STAGING_ACCOUNT_ID: "239043911459"
   PRODUCTION_ACCOUNT_ID: "296255494825"
 
-
 jobs:
-
   s3-backup:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
 
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Generate Tailwind CSS file
+        run: |
+          npm install
+          npm run build
 
-    - name: Generate Tailwind CSS file
-      run: |
-        npm install
-        npm run build
+      # Staging upload
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_KEY_ID }}
+          aws-region: ca-central-1
 
-    # Staging upload
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.STAGING_AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.STAGING_AWS_SECRET_KEY_ID }}
-        aws-region: ca-central-1
+      - name: Get latest tag
+        id: latest-tag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
-    - name: Upload to S3 bucket
-      run: |
-        cd ./dist
-        aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
+      - name: Upload to S3 bucket
+        run: |
+          cd ./dist
+          aws s3 sync . s3://${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }}
 
-    - name: Invalidate CloudFront cache
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+      - name: Tag S3 bucket
+        shell: bash
+        run: |
+          aws s3api put-bucket-tagging --bucket ${{ secrets.STAGING_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ latest-tag.outputs.tag }}"}]}
 
-    # Production upload
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_KEY_ID }}
-        aws-region: ca-central-1
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.STAGING_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
 
-    - name: Upload to S3 bucket
-      run: |
-        cd ./dist
-        aws s3 sync . s3://${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }}
+      # Production upload
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_KEY_ID }}
+          aws-region: ca-central-1
 
-    - name: Invalidate CloudFront cache
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.PRODUCTION_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+      - name: Get staging S3 bucket tag
+        shell: bash
+        run: /
+          echo "STAGING_TAG=$(aws s3api get-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --query TagSet[0].Value)" >> $GITHUB_ENV
 
-    - name: Notify Slack channel if this job failed
-      if: ${{ failure() }}
-      run: |
-        json='{"text":"System Status Frontend failed to upload <https://github.com/${{ github.repository }}>!"}'
-        curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_DEV_WEDBOOK }}
+      - name: Upload to S3 bucket
+        if: latest-tag.outputs.tag == ${{ STAGING_TAG }}
+        shell: bash
+        run: /
+          cd ./dist
+          aws s3 sync . s3://${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }}
+
+      - name: Tag S3 bucket
+        if: latest-tag.outputs.tag == ${{ STAGING_TAG}}
+        shell: bash
+        run: |
+          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ latest-tag.outputs.tag }}"}]}
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.PRODUCTION_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+
+      - name: Notify Slack channel if this job failed
+        if: ${{ failure() }}
+        run: |
+          json='{"text":"System Status Frontend failed to upload <https://github.com/${{ github.repository }}>!"}'
+          curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_DEV_WEDBOOK }}
