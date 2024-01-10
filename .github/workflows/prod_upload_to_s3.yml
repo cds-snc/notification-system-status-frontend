@@ -59,6 +59,7 @@ jobs:
           aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ latest-tag.outputs.tag }}"}]}
 
       - name: Invalidate CloudFront cache
+        if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.PRODUCTION_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
 
