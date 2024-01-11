@@ -47,6 +47,7 @@ jobs:
         shell: bash
         run: |
           aws s3api get-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging 'TagSet=[{Key=Version, Value=v1.0.0}]'
+          echo "BUCKET_TAG=v1.0.0" >> $GITHUB_ENV
 
       - name: Generate Tailwind CSS file
         if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
@@ -75,4 +76,3 @@ jobs:
         run: |
           json='{"text":"System Status Frontend upload to Production failed <https://github.com/${{ github.repository }}>!"}'
           curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_DEV_WEDBOOK }}
-
