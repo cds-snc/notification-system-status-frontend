@@ -46,7 +46,7 @@ jobs:
         if: ${{ env.BUCKET_TAG }} == "" or ${{ env.BUCKET_TAG }} == "[]"
         shell: bash
         run: |
-          aws s3api get-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging 'TagSet=[{Key=Version, Value=v1.0.0}]'
+          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging 'TagSet=[{Key=Version, Value=v1.0.0}]'
           echo "BUCKET_TAG=v1.0.0" >> $GITHUB_ENV
 
       - name: Generate Tailwind CSS file
