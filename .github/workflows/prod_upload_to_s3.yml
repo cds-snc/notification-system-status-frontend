@@ -34,7 +34,7 @@ jobs:
           aws-region: ca-central-1
 
       - name: Get latest tag
-        id: steps.latest-tag
+        id: latest-tag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
       - name: Get S3 bucket tag
