@@ -7,7 +7,7 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 850,
     setupNodeEvents(on, config) {
-      htmlvalidate.install(on,  {
+      htmlvalidate.install(on, {
         rules: {
           "require-sri": "off",
         },
