@@ -34,7 +34,7 @@ jobs:
           aws-region: ca-central-1
 
       - name: Get latest tag
-        id: latest-tag
+        id: steps.latest-tag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
       - name: Get S3 bucket tag
@@ -50,24 +50,24 @@ jobs:
           echo "BUCKET_TAG=v1.0.0" >> $GITHUB_ENV
 
       - name: Generate Tailwind CSS file
-        if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
+        if: steps.latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
         run: |
           npm install
           npm run build
 
       - name: Upload to S3 bucket
-        if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
+        if: ${{ steps.latest-tag.outputs.tag }} != ${{ env.BUCKET_TAG }}
         run: |
           cd ./dist
           aws s3 sync . s3://${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }}
 
       - name: Update S3 bucket Tag
-        if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
+        if: steps.latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
         run: |
-          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ latest-tag.outputs.tag }}"}]}
+          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ steps.latest-tag.outputs.tag }}"}]}
 
       - name: Invalidate CloudFront cache
-        if: latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
+        if: steps.latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.PRODUCTION_SYSTEM_STATUS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
 
