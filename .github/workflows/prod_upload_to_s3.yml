@@ -43,7 +43,7 @@ jobs:
           echo "BUCKET_TAG=$(aws s3api get-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --query TagSet[?Key == 'Version'].Value | [0])" >> $GITHUB_ENV
 
       - name: Seed S3 bucket tag
-        if: ${{ BUCKET_TAG }} == "" or ${{ BUCKET_TAG }} == "[]"
+        if: ${{ env.BUCKET_TAG }} == "" or ${{ env.BUCKET_TAG }} == "[]"
         shell: bash
         run: |
           aws s3api get-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging 'TagSet=[{Key=Version, Value=v1.0.0}]'
