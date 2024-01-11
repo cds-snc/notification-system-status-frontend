@@ -64,7 +64,7 @@ jobs:
       - name: Update S3 bucket Tag
         if: steps.latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
         run: |
-          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging {"TagSet":[{"Key": "Version", "Value": "${{ steps.latest-tag.outputs.tag }}"}]}
+          aws s3api put-bucket-tagging --bucket ${{ secrets.PRODUCTION_SYSTEM_STATUS_BUCKET }} --tagging 'TagSet=[{Key=Version, Value=${{ steps.latest-tag.outputs.tag }} }]'
 
       - name: Invalidate CloudFront cache
         if: steps.latest-tag.outputs.tag != ${{ env.BUCKET_TAG }}
