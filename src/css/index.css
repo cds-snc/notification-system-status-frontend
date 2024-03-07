@@ -14,20 +14,19 @@ p {
 }
 
 hr {
-  @apply my-gutterAndAHalf border-solid border-t border-gray-300
+  @apply my-gutterAndAHalf border-solid border-t border-gray-300;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-wrap: balance;
 }
 
-p+h3 {
-  @apply border-t border-gray-300 pt-gutterHalf
+p + h3 {
+  @apply border-t border-gray-300 pt-gutterHalf;
 }
-
 
 /**
  * Layout components
  */
-
-
