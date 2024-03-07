@@ -113,14 +113,10 @@
       if (!STRINGS[key]) {
         console.error("Missing translation for " + key);
       }
-      switch (STRINGS[key][attr]) {
-        case "src":
-          break;
-
-        default:
-          el.innerHTML = STRINGS[key][lang];
-
-          break;
+      if (STRINGS[key].attr) {
+        el.setAttribute(STRINGS[key].attr, STRINGS[key][lang]);
+      } else {
+        el.innerHTML = STRINGS[key][lang];
       }
     });
   }
