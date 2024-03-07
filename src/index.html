@@ -39,7 +39,21 @@
 
 <body class="text-xl min-w-[320px] bg-white text-black dark:bg-black dark:text-white">
   <!--Nav-->
-  <nav id="header" class="border-b-2 border-notify-400 dark:bg-gray-900">
+  <nav id="header" class="bg-white">
+    <div class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between">
+      <div class="flex gap-gutterHalf w-full items-center">
+        <img src="/assets/fip-en.svg" alt="" />
+      </div>
+
+      <button
+        class="bg-gray-100  border-b-2 border-blue-900  text-blue-900  sm:underline sm sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
+        id="lang-toggle" data-testid="lang_button" type="button">
+        <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span><span class="sr-only sm:not-sr-only"
+          data-i18n="lang_button">Français</span>
+      </button>
+    </div>
+  </nav>
+  <header class="bg-gray-100 dark:bg-gray-900">
     <div class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between">
       <div class="flex gap-gutterHalf w-full items-center">
         <img src="/assets/notify.svg" alt="" />
@@ -47,15 +61,8 @@
           GC Notify System Status
         </h1>
       </div>
-
-      <button
-        class="bg-gray-100 dark:bg-black border-b-2 border-blue-900 dark:border-blue-200 text-blue-900 dark:text-blue-200 sm:underline sm:dark:bg-transparent sm:bg-transparent sm:border-none size-12 sm:w-auto flex items-center justify-center"
-        id="lang-toggle" data-testid="lang_button" type="button">
-        <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span><span class="sr-only sm:not-sr-only"
-          data-i18n="lang_button">Français</span>
-      </button>
     </div>
-  </nav>
+  </header>
 
   <main>
     <div class="bg-gray-200 dark:bg-gray-800">

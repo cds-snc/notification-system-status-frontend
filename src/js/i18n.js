@@ -7,6 +7,11 @@
  */
 (function () {
   const STRINGS = {
+    fip_logo: {
+      attr: "src",
+      en: "/assets/fip-en.svg",
+      fr: "/assets/fip-fr.svg",
+    },
     site_title: {
       en: "GC Notify System Status",
       fr: "État du système GC Notify",
@@ -108,7 +113,15 @@
       if (!STRINGS[key]) {
         console.error("Missing translation for " + key);
       }
-      el.innerHTML = STRINGS[key][lang];
+      switch (STRINGS[key][attr]) {
+        case "src":
+          break;
+
+        default:
+          el.innerHTML = STRINGS[key][lang];
+
+          break;
+      }
     });
   }
   window.LoadTranslations = load_translations;
