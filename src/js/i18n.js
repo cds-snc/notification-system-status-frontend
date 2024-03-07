@@ -14,7 +14,7 @@
     },
     site_title: {
       en: "GC Notify System Status",
-      fr: "État du système GC Notify",
+      fr: "État du système Notification GC",
     },
     lang_button: {
       en: "Français",

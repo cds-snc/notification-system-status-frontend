@@ -31,7 +31,7 @@
     // fix up h3's to use tailwind
     incident_html = incident_html.replace(
       /wp-block-heading/g,
-      "text-3xl text-gray-800 dark:text-gray-400 font-[425] font-heading leading-none mb-3 mt-10",
+      "text-3xl font-[425] font-heading leading-tight mt-gutterAndAHalf",
     );
 
     // remove h2
