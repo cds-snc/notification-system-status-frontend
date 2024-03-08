@@ -7,6 +7,71 @@
  */
 (function () {
   const STRINGS = {
+    legal_label: {
+      attr: "aria-label",
+      en: "Legal information",
+      fr: "Information légale",
+    },
+    privacy_href: {
+      attr: "href",
+      en: "https://notification.canada.ca/privacy",
+      fr: "https://notification.canada.ca/confidentialite",
+    },
+    privacy: {
+      en: "Privacy",
+      fr: "Confidentialité",
+    },
+    security_href: {
+      attr: "href",
+      en: "https://notification.canada.ca/security",
+      fr: "https://notification.canada.ca/securite",
+    },
+    security: {
+      en: "Security",
+      fr: "Sécurité",
+    },
+    a11y_href: {
+      attr: "href",
+      en: "https://notification.canada.ca/accessibility",
+      fr: "https://notification.canada.ca/accessibilite",
+    },
+    a11y: {
+      en: "Accessibility",
+      fr: "Accessibilité",
+    },
+    terms_href: {
+      attr: "href",
+      en: "https://notification.canada.ca/terms",
+      fr: "https://notification.canada.ca/conditions-dutilisation",
+    },
+    terms: {
+      en: "Terms of use",
+      fr: "Conditions d’utilisation",
+    },
+    sla_href: {
+      attr: "href",
+      en: "https://notification.canada.ca/service-level-agreement",
+      fr: "https://notification.canada.ca/accord-niveaux-de-service",
+    },
+    sla: {
+      en: "Service level agreement",
+      fr: "Accord sur les niveaux de service",
+    },
+    wordmark_alt: {
+      attr: "alt",
+      en: "Symbol of the Government of Canada",
+      fr: "Symbole du Gouvernment du Canada",
+    },
+    fip_logo_alt: {
+      attr: "alt",
+      en: "Government of Canada",
+      fr: "Gouvernment du Canada",
+    },
+    fip_logo: {
+      attr: "src",
+      en: "/assets/fip-en.svg",
+      fr: "/assets/fip-fr.svg",
+    },
     site_title: {
       en: "GC Notify System Status",
       fr: "État du système Notification GC",
@@ -102,13 +167,24 @@
    * attribute and replacing the innerHTML with the appropriate translation.
    */
   function load_translations() {
+    let lang = document.documentElement.lang || "en";
+    // Get all data-i18n attributes on el
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n");
-      var lang = document.documentElement.lang || "en";
-      if (!STRINGS[key]) {
-        console.error("Missing translation for " + key);
-      }
-      el.innerHTML = STRINGS[key][lang];
+      // get all translations keys on the el
+      let keys = el.getAttribute("data-i18n").split(" ");
+      keys.forEach((key) => {
+        // Check if the translation is missing, log an error
+        if (!STRINGS[key]) {
+          console.error("Missing translation for " + key);
+        } else {
+          //If translation applies to a specific attr, set it, else set innerHTML
+          if (STRINGS[key].attr) {
+            el.setAttribute(STRINGS[key].attr, STRINGS[key][lang]);
+          } else {
+            el.innerHTML = STRINGS[key][lang];
+          }
+        }
+      });
     });
   }
   window.LoadTranslations = load_translations;
