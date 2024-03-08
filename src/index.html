@@ -56,7 +56,11 @@
         class="container mx-auto px-gutterHalf py-gutterHalf flex gap-gutter w-full justify-between"
       >
         <div class="flex gap-gutterHalf w-full items-center">
-          <img src="/assets/fip-en.svg" alt="" />
+          <img
+            src="/assets/fip-en.svg"
+            alt=""
+            data-i18n="fip_logo fip_logo_alt"
+          />
         </div>
 
         <button
@@ -171,15 +175,107 @@
           <div id="history" class="dark:text-white" data-testid="history"></div>
         </div>
       </section>
-      <section class="bg-blue-900" aria-label="footer">
+      <section class="bg-blue-900">
         <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
-          <a href="https://notification.canada.ca" class="text-blue-200"
-            ><i class="text-2xl ph-arrow-left mr-4"></i>
+          <a
+            href="https://notification.canada.ca"
+            class="text-blue-200 inline-flex items-center gap-2"
+          >
             <span data-i18n="back_button">Go to GC Notify</span>
           </a>
         </div>
       </section>
     </main>
+    <footer class="bg-gray-100">
+      <div
+        class="container mx-auto px-gutterHalf py-gutterAndAHalf flex gap-gutter items-end lg:items-center justify-between"
+      >
+        <ul
+          class="text-base leading-8 [&_a]:text-black [&_svg]:hidden md:[&_svg]:inline md:[&_svg]:mx-gutterHalf flex flex-col md:flex-row flex-wrap gap-gutterHalf md:gap-0 md:items-center"
+        >
+          <li class="lg:list-none">
+            <a
+              href="https://notification.canada.ca/privacy"
+              data-i18n="privacy privacy_href"
+              >Privacy</a
+            >
+            <svg
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </li>
+
+          <li>
+            <a
+              href="https://notification.canada.ca/security"
+              data-i18n="security security_href"
+              >Security</a
+            >
+            <svg
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </li>
+
+          <li>
+            <a
+              href="https://notification.canada.ca/accessibility"
+              data-i18n="a11y a11y_href"
+              >Accessibility</a
+            >
+            <svg
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </li>
+
+          <li>
+            <a
+              href="https://notification.canada.ca/terms"
+              data-i18n="terms terms_href"
+              >Terms of use</a
+            >
+            <svg
+              width="4"
+              height="4"
+              viewBox="0 0 4 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="2" cy="2" r="2" fill="black" />
+            </svg>
+          </li>
+
+          <li>
+            <a
+              href="https://notification.canada.ca/service-level-agreement"
+              data-i18n="sla sla_href"
+              >Service level agreement</a
+            >
+          </li>
+        </ul>
+        <img
+          src="/assets/fip-wordmark.svg"
+          alt="Symbol of the Government of Canada"
+          data-i18n="wordmark_alt"
+        />
+      </div>
+    </footer>
 
     <script src="./js/articles.js"></script>
     <!-- exposes `LoadIncidentHistory()` -->
