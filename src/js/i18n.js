@@ -7,6 +7,11 @@
  */
 (function () {
   const STRINGS = {
+    legal_label: {
+      attr: "aria-label",
+      en: "Legal information",
+      fr: "Information légale",
+    },
     privacy_href: {
       attr: "href",
       en: "https://notification.canada.ca/privacy",
