@@ -1,6 +1,7 @@
 name: Copy files to Production S3 bucket
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - v[1234].[0-0]+.[0-9]+
