@@ -10,7 +10,10 @@ a {
 }
 
 p {
-  @apply max-w-[70ch] mt-4 leading-relaxed;
+  @apply max-w-[70ch] leading-relaxed;
+}
+* + p {
+  @apply mt-4
 }
 
 hr {
@@ -27,6 +30,22 @@ p + h3 {
   @apply border-t border-gray-300 pt-gutterHalf;
 }
 
+ol {
+  @apply list-decimal pl-gutter space-y-2;
+}
+
+ul {
+  @apply list-disc pl-gutter space-y-2;
+}
+
+p + ol, p + ul {
+  @apply pt-4
+}
+
 /**
  * Layout components
  */
+
+ .action-required {
+  @apply my-gutter px-gutter border-l-4 border-gray-300;
+ }
