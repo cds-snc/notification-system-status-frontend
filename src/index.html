@@ -50,6 +50,10 @@
   <body
     class="text-xl min-w-[320px] bg-white text-black dark:bg-black dark:text-white"
   >
+    <!-- Skip to main content link for accessibility -->
+      <div class="flex w-full justify-start md:justify-center md:col-start-2 items-center md:mx-auto" id="skiplink-container">
+          <a href="#main-content" class="skiplink px-2 py-2" data-i18n="skip_to_main_content">Skip to main content</a>
+      </div>
     <!--Nav-->
     <nav id="header" class="bg-white" aria-labelledby="site-title">
       <div
@@ -89,7 +93,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <div class="bg-gray-200 dark:bg-gray-800">
         <div class="container mx-auto px-gutterHalf py-doubleGutter w-full">
           <ul

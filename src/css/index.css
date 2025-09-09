@@ -49,3 +49,26 @@ p + ol, p + ul {
  .action-required {
   @apply my-gutter px-gutter border-l-4 border-gray-300;
  }
+
+/**
+ * Skip to main content accessibility component
+ */
+.skiplink:focus {
+  @apply flex outline-none bg-yellow-300 border-b-2 border-blue-500 no-underline;
+  z-index: 1;
+}
+
+.skiplink:not(:focus) {
+  @apply absolute;
+  left: -9999em;
+}
+
+.skiplink:focus,
+.skiplink:visited {
+  color: #0b0c0c;
+}
+
+#skiplink-container .skiplink {
+  display: -moz-inline-stack;
+  display: inline-block;
+}
