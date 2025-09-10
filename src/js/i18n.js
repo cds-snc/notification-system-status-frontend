@@ -128,6 +128,10 @@
       en: "Loading...",
       fr: "Chargement...",
     },
+    skip_to_main_content: {
+      en: "Skip to main content",
+      fr: "Passer au contenu principal",
+    },
   };
   /**
    * Switches the UI language between English and French.
