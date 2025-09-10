@@ -51,49 +51,50 @@
     class="text-xl min-w-[320px] bg-white text-black dark:bg-black dark:text-white"
   >
     <!-- Skip to main content link for accessibility -->
+     <header>
       <div class="flex w-full justify-start md:justify-center md:col-start-2 items-center md:mx-auto" id="skiplink-container">
           <a href="#main-content" class="skiplink px-2 py-2" data-i18n="skip_to_main_content">Skip to main content</a>
       </div>
-    <!--Nav-->
-    <nav id="header" class="bg-white" aria-labelledby="site-title">
-      <div
-        class="container mx-auto px-gutterHalf py-gutterHalf flex gap-gutter w-full justify-between"
-      >
-        <div class="flex gap-gutterHalf w-full items-center">
-          <img
-            src="/assets/fip-en.svg"
-            alt=""
-            data-i18n="fip_logo fip_logo_alt"
-          />
-        </div>
-
-        <button
-          class="bg-gray-100 border-b-2 border-blue-900 text-blue-900 sm:underline sm sm:bg-transparent sm:border-none size-12 sm:w-auto shrink-0 flex items-center justify-center"
-          id="lang-toggle"
-          data-testid="lang_button"
-          type="button"
+      <!--Nav-->
+      <nav id="header" class="bg-white" aria-labelledby="site-title">
+        <div
+          class="container mx-auto px-gutterHalf py-gutterHalf flex gap-gutter w-full justify-between"
         >
-          <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
-          ><span class="sr-only sm:not-sr-only" data-i18n="lang_button"
-            >Français</span
+          <div class="flex gap-gutterHalf w-full items-center">
+            <img
+              src="/assets/fip-en.svg"
+              alt=""
+              data-i18n="fip_logo fip_logo_alt"
+            />
+          </div>
+
+          <button
+            class="bg-gray-100 border-b-2 border-blue-900 text-blue-900 sm:underline sm sm:bg-transparent sm:border-none size-12 sm:w-auto shrink-0 flex items-center justify-center"
+            id="lang-toggle"
+            data-testid="lang_button"
+            type="button"
           >
-        </button>
-      </div>
-    </nav>
-    <header class="bg-gray-100 dark:bg-gray-900" aria-labelledby="site-title">
-      <div
-        class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between"
-      >
-        <div class="flex gap-gutterHalf w-full items-start">
-          <img class="size-7" src="/assets/notify.svg" alt="" />
-          <h1 id="site-title" class="text-xl/7 font-heading font-[375]" data-i18n="site_title">
-            GC Notify System Status
-          </h1>
+            <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
+            ><span class="sr-only sm:not-sr-only" data-i18n="lang_button"
+              >Français</span
+            >
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="bg-gray-100 dark:bg-gray-900">
+        <div
+          class="container mx-auto px-gutterHalf py-gutterHalf flex w-full justify-between"
+        >
+          <div class="flex gap-gutterHalf w-full items-start">
+            <img class="size-7" src="/assets/notify.svg" alt="" />
+            <h1 id="site-title" class="text-xl/7 font-heading font-[375]" data-i18n="site_title">
+              GC Notify System Status
+            </h1>
+          </div>
         </div>
       </div>
-    </header>
-
-    <main id="main-content">
       <div class="bg-gray-200 dark:bg-gray-800">
         <div class="container mx-auto px-gutterHalf py-doubleGutter w-full">
           <ul
