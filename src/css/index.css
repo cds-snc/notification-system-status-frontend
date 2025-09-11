@@ -38,6 +38,10 @@ main ul {
   @apply list-disc pl-gutter;
 }
 
+ul#component_status_list {
+  @apply pl-0;
+}
+
 p + ol, p + ul {
   @apply pt-4
 }
