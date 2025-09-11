@@ -34,8 +34,8 @@ ol {
   @apply list-decimal pl-gutter space-y-2;
 }
 
-ul {
-  @apply list-disc;
+main ul {
+  @apply list-disc pl-gutter;
 }
 
 p + ol, p + ul {
