@@ -35,7 +35,7 @@ ol {
 }
 
 ul {
-  @apply pl-gutter;
+  @apply list-disc;
 }
 
 p + ol, p + ul {
