@@ -17,14 +17,15 @@
    * @param {Function} onComplete Callback function to run after the language switch
    */
   window.SwitchLanguage = function ({ buttonId, currentLang, onComplete }) {
-    // Set initial language from parameter or detect from URL hash
-    if (window.location.hash == "#fr" && currentLang !== 'fr') {
-      // Redirect to French page
-      window.location.href = "index-fr.html#fr";
+    // Set initial language from parameter or detect from URL path
+    const currentPath = window.location.pathname;
+    if (currentPath === "/fr" && currentLang !== 'fr') {
+      // Already on French page, just reload with correct language
+      window.location.reload();
       return;
-    } else if (window.location.hash == "#en" && currentLang !== 'en') {
-      // Redirect to English page  
-      window.location.href = "index.html#en";
+    } else if (currentPath === "/en" && currentLang !== 'en') {
+      // Already on English page, just reload with correct language
+      window.location.reload();
       return;
     }
 
@@ -35,9 +36,9 @@
     document.getElementById(buttonId).addEventListener("click", function () {
       const langAlt = this.getAttribute('data-lang-alt');
       if (langAlt === 'fr') {
-        window.location.href = "index-fr.html#fr";
+        window.location.href = "/fr";
       } else {
-        window.location.href = "index.html#en";  
+        window.location.href = "/en";  
       }
     });
 

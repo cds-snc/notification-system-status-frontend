@@ -28,12 +28,36 @@ languages.forEach(lang => {
   // Render the template
   const output = Mustache.render(template, data);
   
-  // Write the output
-  const outputFile = lang === 'en' ? 'index.html' : `index-${lang}.html`;
-  const outputPath = path.join(outputDir, outputFile);
+  // Create language-specific directories and write the output
+  const langDir = path.join(outputDir, lang);
+  if (!fs.existsSync(langDir)) {
+    fs.mkdirSync(langDir, { recursive: true });
+  }
   
+  const outputPath = path.join(langDir, 'index.html');
   fs.writeFileSync(outputPath, output);
-  console.log(`Generated ${outputFile}`);
+  console.log(`Generated ${lang}/index.html`);
 });
+
+// Create a root index.html that redirects to /en by default
+const rootIndexContent = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    // Redirect to English by default, or French if browser language preference is French
+    const preferredLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    window.location.href = '/' + preferredLang;
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>`;
+
+const rootIndexPath = path.join(outputDir, 'index.html');
+fs.writeFileSync(rootIndexPath, rootIndexContent);
+console.log('Generated root index.html with language detection');
 
 console.log('Template processing complete!');
