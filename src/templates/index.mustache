@@ -293,21 +293,10 @@
             loaderId: "history-loading",
             contentId: "history",
           });
+          // Load component status data
+          LoadComponentStatus();
         },
       });
-
-      /**
-       * Load component status after a short delay
-       */
-      window.setTimeout(() => {
-        // Load the component status now
-        LoadComponentStatus(LoadTranslations);
-
-        // Load the component status again every 5 minutes
-        window.setInterval(() => {
-          LoadComponentStatus(LoadTranslations);
-        }, 300000); // 5 minutes
-      }, 1500);
     </script>
   </body>
 </html>
