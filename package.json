@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css; cp ./src/index.html ./dist; mkdir -p ./dist/js && cp ./src/js/* ./dist/js; mkdir -p ./dist/assets && cp ./src/assets/* ./dist/assets",
+    "build": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css && node build.js",
+    "build-legacy": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css; cp ./src/index.html ./dist; mkdir -p ./dist/js && cp ./src/js/* ./dist/js; mkdir -p ./dist/assets && cp ./src/assets/* ./dist/assets",
     "watch-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css --watch",
     "watch-html": "npx copy-and-watch --watch src/**/*.html dist/ & npx copy-and-watch --watch src/js/*.js dist/js",
     "watch-assets": "npx copy-and-watch --watch src/assets/* dist/assets",

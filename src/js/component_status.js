@@ -4,45 +4,53 @@
  */
 (async function () {
   const STATUS_DATA_URL = `/response.json?${makeid(10)}`;
-  const COMPONENTS = {
+  
+  // Expose COMPONENTS globally so i18n can update translations
+  window.COMPONENTS = {
     api: {
       id: "api",
       icon: "ph ph-terminal-window",
+      name: "GC Notify API"
     },
     admin: {
       id: "admin",
       icon: "ph ph-globe",
+      name: "GC Notify Website"
     },
     email: {
       id: "email",
       icon: "ph ph-paper-plane-tilt",
+      name: "Email sending"
     },
     sms: {
       id: "sms",
       icon: "ph ph-chat-text",
+      name: "Text message sending"
     },
   };
-  const COMPONENT_STATES = {
+  
+  // Expose COMPONENT_STATES globally so i18n can update translations
+  window.COMPONENT_STATES = {
     up: {
-      text: '<span data-i18n="status_up">Up</span>',
+      text: 'Up',
       icon: "ph-fill ph-check-circle",
       color: "text-green-700 dark:text-green-300",
       border: "border-green-500",
     },
     down: {
-      text: '<span data-i18n="status_down">Down</span>',
+      text: 'Down',
       icon: "ph-fill ph-x-circle",
       color: "text-red-700 dark:text-red-300",
       border: "border-red-500",
     },
     degraded: {
-      text: '<span data-i18n="status_degraded">Degraded</span>',
+      text: 'Slow',
       icon: "ph-fill ph-warning-circle",
       color: "text-yellow-700 dark:text-yellow-300",
       border: "border-yellow-500",
     },
     unknown: {
-      text: '<span data-i18n="status_loading">Loading...</span>',
+      text: 'Loading...',
       icon: "animate-spin ph ph-circle-notch",
       color: "text-gray-700 dark:text-gray-300",
       border: "border-gray-300",
@@ -50,9 +58,9 @@
   };
   const COMPONENT_HTML = ({ component_id, component_status }) => `
   <li class="flex items-start p-4 gap-2 bg-white dark:bg-black border-b-8 ${component_status.border}" id="${component_id}">
-    <i class="text-3xl ${COMPONENTS[component_id].icon}"></i>
+    <i class="text-3xl ${window.COMPONENTS[component_id].icon}"></i>
       <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2 items-baseline justify-between w-full py-1">
-        <span data-i18n="${component_id}"></span>
+        <span>${window.COMPONENTS[component_id].name}</span>
       
       <div class="flex gap-2 items-center ${component_status.color}">
         ${component_status.text}
@@ -61,12 +69,12 @@
     </li>`;
 
   // Render the initial component status list
-  for (const key in COMPONENTS) {
-    const component = COMPONENTS[key];
+  for (const key in window.COMPONENTS) {
+    const component = window.COMPONENTS[key];
     document.getElementById("component_status_list").innerHTML +=
       COMPONENT_HTML({
         component_id: component.id,
-        component_status: COMPONENT_STATES["unknown"],
+        component_status: window.COMPONENT_STATES["unknown"],
       });
   }
 
@@ -84,7 +92,7 @@
       document.getElementById("component_status_list").innerHTML +=
         COMPONENT_HTML({
           component_id: component.id,
-          component_status: COMPONENT_STATES[component.status],
+          component_status: window.COMPONENT_STATES[component.status],
         });
     }
 
