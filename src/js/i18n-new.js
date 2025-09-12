@@ -80,23 +80,9 @@
     let translatedHTML = html;
     
     for (const [english, french] of translations) {
-      // Create multiple regex patterns to handle different cases
-      
-      // Pattern 1: Direct text between tags (exact match)
-      const exactRegex = new RegExp('>' + escapeRegex(english) + '<', 'g');
-      translatedHTML = translatedHTML.replace(exactRegex, '>' + french + '<');
-      
-      // Pattern 2: Text with surrounding whitespace
-      const whitespaceRegex = new RegExp('>\\s*' + escapeRegex(english) + '\\s*<', 'g');
-      translatedHTML = translatedHTML.replace(whitespaceRegex, '>' + french + '<');
-      
-      // Pattern 3: Text with newlines and indentation (common in formatted HTML)
-      const multilineRegex = new RegExp('>\\s*\\n\\s*' + escapeRegex(english) + '\\s*\\n\\s*<', 'g');
-      translatedHTML = translatedHTML.replace(multilineRegex, '>' + french + '<');
-      
-      // Pattern 4: Handle cases where text spans multiple lines with indentation
-      const indentedRegex = new RegExp('>([\\s\\n]*)' + escapeRegex(english) + '([\\s\\n]*)<', 'g');
-      translatedHTML = translatedHTML.replace(indentedRegex, '>$1' + french + '$2<');
+      // Replace text content, being careful not to break HTML structure
+      const regex = new RegExp('>' + escapeRegex(english) + '<', 'g');
+      translatedHTML = translatedHTML.replace(regex, '>' + french + '<');
       
       // Replace attribute values
       const attrRegex = new RegExp('="' + escapeRegex(english) + '"', 'g');

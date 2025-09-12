@@ -44,17 +44,11 @@ function translateHTML(html, translations) {
   for (const [english, french] of translations) {
     // Replace text content with flexible whitespace handling
     const textRegex = new RegExp('>' + escapeRegex(english).replace(/\\s+/g, '\\s+') + '<', 'g');
-    const beforeCount = (translatedHTML.match(textRegex) || []).length;
     translatedHTML = translatedHTML.replace(textRegex, '>' + french + '<');
     
     // Also handle cases with newlines and whitespace
     const multilineRegex = new RegExp('>\\s*' + escapeRegex(english) + '\\s*<', 'g');
-    const multilineCount = (translatedHTML.match(multilineRegex) || []).length;
     translatedHTML = translatedHTML.replace(multilineRegex, '>' + french + '<');
-    
-    if (beforeCount > 0 || multilineCount > 0) {
-      console.log(`Replaced "${english}" -> "${french}" (${beforeCount + multilineCount} occurrences)`);
-    }
     
     // Replace attribute values
     const attrRegex = new RegExp('="' + escapeRegex(english) + '"', 'g');
