@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css; cp ./src/index.html ./dist; mkdir -p ./dist/js && cp ./src/js/* ./dist/js; mkdir -p ./dist/assets && cp ./src/assets/* ./dist/assets",
+    "build-templates": "node build-templates.js",
+    "build-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css",
+    "build": "npm run build-templates && npm run build-css && mkdir -p ./dist/js && cp ./src/js/* ./dist/js && mkdir -p ./dist/assets && cp ./src/assets/* ./dist/assets && cp response.json ./dist/",
     "watch-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css --watch",
-    "watch-html": "npx copy-and-watch --watch src/**/*.html dist/ & npx copy-and-watch --watch src/js/*.js dist/js",
+    "watch-html": "npx copy-and-watch --watch templates/ dist/ --transform 'node build-templates.js' & npx copy-and-watch --watch src/js/*.js dist/js",
     "watch-assets": "npx copy-and-watch --watch src/assets/* dist/assets",
-    "dev": "mkdir dist; echo \"{}\" >dist/serve.json & cp response.json dist & npx serve dist/ & npm run watch-css & npm run watch-html & npm run watch-assets",
+    "dev": "mkdir -p dist && npm run build && npx serve dist/ & npm run watch-css & npm run watch-html & npm run watch-assets",
     "format": "npx prettier --config ./.prettierrc --ignore-path ./..prettierignore src/ --write"
   },
   "repository": {
@@ -31,5 +33,8 @@
     "prettier": "3.1.1",
     "serve": "^14.2.1",
     "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "mustache": "^4.2.0"
   }
 }
