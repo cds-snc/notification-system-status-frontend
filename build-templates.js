@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Mustache = require('mustache');
 
-const templatesDir = path.join(__dirname, 'templates');
+const templatesDir = path.join(__dirname, 'src', 'templates');
 const dataDir = path.join(templatesDir, 'data');
 const outputDir = path.join(__dirname, 'dist');
 

@@ -1,7 +1,7 @@
 /**
  * This module handles language switching between English and French pages.
  * 
- * Static translations are now handled by Mustache templates in templates/data/
+ * Static translations are now handled by Mustache templates in src/templates/data/
  * Dynamic translations are handled directly in component_status.js
  *
  * It exposes one function at the global scope:

@@ -9,7 +9,7 @@
     "build-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css",
     "build": "npm run build-templates && npm run build-css && mkdir -p ./dist/js && cp ./src/js/* ./dist/js && mkdir -p ./dist/assets && cp ./src/assets/* ./dist/assets && cp response.json ./dist/",
     "watch-css": "npx tailwindcss -i ./src/css/index.css -o ./dist/css/index.css --watch",
-    "watch-html": "npx copy-and-watch --watch templates/ dist/ --transform 'node build-templates.js' & npx copy-and-watch --watch src/js/*.js dist/js",
+    "watch-html": "npx copy-and-watch --watch src/js/*.js dist/js",
     "watch-assets": "npx copy-and-watch --watch src/assets/* dist/assets",
     "dev": "mkdir -p dist && npm run build && npx serve dist/ & npm run watch-css & npm run watch-html & npm run watch-assets",
     "format": "npx prettier --config ./.prettierrc --ignore-path ./..prettierignore src/ --write"
