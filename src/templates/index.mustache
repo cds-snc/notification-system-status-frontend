@@ -1,10 +1,10 @@
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>GC Notify - System Status</title>
-    <meta name="description" content="GC Notify system status" />
+    <title>{{siteTitle}}</title>
+    <meta name="description" content="{{siteTitle}}" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
 
@@ -53,7 +53,7 @@
     <!-- Skip to main content link for accessibility -->
      <header>
       <div class="flex w-full justify-start md:justify-center md:col-start-2 items-center md:mx-auto" id="skiplink-container">
-          <a href="#main-content" class="skiplink px-2 py-2" data-i18n="skip_to_main_content">Skip to main content</a>
+          <a href="#main-content" class="skiplink px-2 py-2">{{skipToMainContent}}</a>
       </div>
       <!--Nav-->
       <nav id="header" class="bg-white" aria-labelledby="site-title">
@@ -62,9 +62,8 @@
         >
           <div class="flex gap-gutterHalf w-full items-center">
             <img
-              src="/assets/fip-en.svg"
-              alt=""
-              data-i18n="fip_logo fip_logo_alt"
+              src="{{fipLogo}}"
+              alt="{{fipLogoAlt}}"
             />
           </div>
 
@@ -72,12 +71,11 @@
             class="bg-gray-100 border-b-2 border-blue-900 text-blue-900 sm:underline sm sm:bg-transparent sm:border-none size-12 sm:w-auto shrink-0 flex items-center justify-center"
             id="lang-toggle"
             data-testid="lang_button"
+            data-lang-alt="{{langAlt}}"
             type="button"
           >
-            <span class="text-base sm:hidden" data-i18n="lang_abbr">FR</span
-            ><span class="sr-only sm:not-sr-only" data-i18n="lang_button"
-              >Français</span
-            >
+            <span class="text-base sm:hidden">{{langAltAbbr}}</span
+            ><span class="sr-only sm:not-sr-only">{{langAltLabel}}</span>
           </button>
         </div>
       </nav>
@@ -89,8 +87,8 @@
         >
           <div class="flex gap-gutterHalf w-full items-start">
             <img class="size-7" src="/assets/notify.svg" alt="" />
-            <h1 id="site-title" class="text-xl/7 font-heading font-[375]" data-i18n="site_title">
-              GC Notify System Status
+            <h1 id="site-title" class="text-xl/7 font-heading font-[375]">
+              {{siteTitle}}
             </h1>
           </div>
         </div>
@@ -107,10 +105,9 @@
       <section class="" data-testid="main_section" aria-label="system status">
         <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
           <h2
-            data-i18n="incident_history_title"
             class="text-5xl font-heading leading-tight text-black dark:text-white"
           >
-            Incidents and service interruptions
+            {{incidentHistoryTitle}}
           </h2>
           <div class="text-center mt-10" id="history-loading">
             <!-- <i class="text-5xl fa-solid fa-spinner fa-spin place-content-center"></i> -->
@@ -180,13 +177,13 @@
           <div id="history" class="dark:text-white" data-testid="history"></div>
         </div>
       </section>
-      <section class="bg-blue-900" aria-label="Go to GC Notify">
+      <section class="bg-blue-900" aria-label="{{backButton}}">
         <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
           <a
-            href="https://notification.canada.ca"
+            href="{{homeUrl}}"
             class="text-blue-200 inline-flex items-center gap-2"
           >
-            <span data-i18n="back_button">Go to GC Notify</span>
+            <span>{{backButton}}</span>
           </a>
         </div>
       </section>
@@ -195,16 +192,12 @@
       <div
         class="container mx-auto px-gutterHalf py-gutterAndAHalf flex gap-gutter items-end lg:items-center justify-between"
       >
-        <nav aria-label="Legal information" data-i18n="legal_label">
+        <nav aria-label="{{footer.legalLabel}}">
           <ul
             class="text-base leading-8 [&_a]:text-black [&_svg]:hidden md:[&_svg]:inline md:[&_svg]:mx-gutterHalf flex flex-col md:flex-row flex-wrap gap-gutterHalf md:gap-0 md:items-center"
           >
             <li>
-              <a
-                href="https://notification.canada.ca/privacy"
-                data-i18n="privacy privacy_href"
-                >Privacy</a
-              >
+              <a href="{{footer.links.privacy.href}}">{{footer.links.privacy.text}}</a>
               <svg
                 width="4"
                 height="4"
@@ -219,11 +212,7 @@
             </li>
 
             <li>
-              <a
-                href="https://notification.canada.ca/security"
-                data-i18n="security security_href"
-                >Security</a
-              >
+              <a href="{{footer.links.security.href}}">{{footer.links.security.text}}</a>
               <svg
                 width="4"
                 height="4"
@@ -238,11 +227,7 @@
             </li>
 
             <li>
-              <a
-                href="https://notification.canada.ca/accessibility"
-                data-i18n="a11y a11y_href"
-                >Accessibility</a
-              >
+              <a href="{{footer.links.accessibility.href}}">{{footer.links.accessibility.text}}</a>
               <svg
                 width="4"
                 height="4"
@@ -257,11 +242,7 @@
             </li>
 
             <li>
-              <a
-                href="https://notification.canada.ca/terms"
-                data-i18n="terms terms_href"
-                >Terms of use</a
-              >
+              <a href="{{footer.links.terms.href}}">{{footer.links.terms.text}}</a>
               <svg
                 width="4"
                 height="4"
@@ -276,55 +257,37 @@
             </li>
 
             <li>
-              <a
-                href="https://notification.canada.ca/service-level-agreement"
-                data-i18n="sla sla_href"
-                >Service level agreement</a
-              >
+              <a href="{{footer.links.sla.href}}">{{footer.links.sla.text}}</a>
             </li>
           </ul>
         </nav>
         <img
           src="/assets/fip-wordmark.svg"
-          alt="Symbol of the Government of Canada"
-          data-i18n="wordmark_alt"
+          alt="{{wordmarkAlt}}"
         />
       </div>
     </footer>
 
     <script src="./js/articles.js"></script>
-    <!-- exposes `LoadIncidentHistory()` -->
     <script src="./js/component_status.js"></script>
-    <!-- exposes `LoadComponentStatus()` -->
     <script src="./js/i18n.js"></script>
-    <!-- exposes `SwitchLanguage()` and `LoadTranslations()` -->
     <script>
       /**
        * Setup language switching and load incident history when the language changes
        */
       SwitchLanguage({
         buttonId: "lang-toggle",
+        currentLang: "{{lang}}",
         onComplete: function () {
           LoadIncidentHistory({
             lang: document.documentElement.lang,
             loaderId: "history-loading",
             contentId: "history",
           });
+          // Load component status data
+          LoadComponentStatus();
         },
       });
-
-      /**
-       * Load component status after a short delay
-       */
-      window.setTimeout(() => {
-        // Load the component status now
-        LoadComponentStatus(LoadTranslations);
-
-        // Load the component status again every 5 minutes
-        window.setInterval(() => {
-          LoadComponentStatus(LoadTranslations);
-        }, 300000); // 5 minutes
-      }, 1500);
     </script>
   </body>
 </html>

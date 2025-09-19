@@ -1,0 +1,43 @@
+{
+  "lang": "fr",
+  "langAlt": "en", 
+  "langAltLabel": "English",
+  "langAltAbbr": "EN",
+  "siteTitle": "État du système Notification GC",
+  "skipToMainContent": "Passer au contenu principal",
+  "fipLogo": "/assets/fip-fr.svg",
+  "fipLogoAlt": "Gouvernment du Canada",
+  "incidentHistoryTitle": "Incidents et interruptions de service",
+  "backButton": "Allez à Notification GC",
+  "wordmarkAlt": "Symbole du Gouvernment du Canada",
+  "homeUrl": "https://notification.canada.ca/accueil",
+  "footer": {
+    "legalLabel": "Information légale",
+    "links": {
+      "privacy": {
+        "text": "Confidentialité",
+        "href": "https://notification.canada.ca/confidentialite"
+      },
+      "security": {
+        "text": "Sécurité",
+        "href": "https://notification.canada.ca/securite"
+      },
+      "accessibility": {
+        "text": "Accessibilité", 
+        "href": "https://notification.canada.ca/accessibilite"
+      },
+      "terms": {
+        "text": "Conditions d'utilisation",
+        "href": "https://notification.canada.ca/conditions-dutilisation"
+      },
+      "sla": {
+        "text": "Accord sur les niveaux de service",
+        "href": "https://notification.canada.ca/accord-niveaux-de-service"
+      }
+    }
+  },
+  "gcds": {
+    "contextualHeading": "Navigation contextuelle",
+    "contextualLinks": "{ \"Pourquoi Notification GC\": \"#\", \"Fonctionnalités\": \"#\", \"Activité sur Notification GC\": \"#\" }"
+  }
+}
