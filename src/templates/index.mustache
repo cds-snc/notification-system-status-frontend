@@ -3,8 +3,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>GC Notify - System Status</title>
-    <meta name="description" content="GC Notify system status" />
+    <title>{{siteTitle}}</title>
+    <meta name="description" content="{{siteTitle}}" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
 
@@ -177,19 +177,10 @@
           <div id="history" class="dark:text-white" data-testid="history"></div>
         </div>
       </section>
-
-      <!-- Example GCDS Footer Component with proper translations -->
-      <gcds-footer
-        display="full"
-        contextual-heading="{{gcds.contextualHeading}}"
-        contextual-links='{{gcds.contextualLinks}}'
-      >
-      </gcds-footer>
-
-      <section class="bg-blue-900" aria-label="Go to GC Notify">
+      <section class="bg-blue-900" aria-label="{{backButton}}">
         <div class="container mx-auto px-gutterHalf py-gutterAndAHalf">
           <a
-            href="https://notification.canada.ca"
+            href="{{homeUrl}}"
             class="text-blue-200 inline-flex items-center gap-2"
           >
             <span>{{backButton}}</span>

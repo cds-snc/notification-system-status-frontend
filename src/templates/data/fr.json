@@ -10,6 +10,7 @@
   "incidentHistoryTitle": "Incidents et interruptions de service",
   "backButton": "Allez à Notification GC",
   "wordmarkAlt": "Symbole du Gouvernment du Canada",
+  "homeUrl": "https://notification.canada.ca/accueil",
   "footer": {
     "legalLabel": "Information légale",
     "links": {
