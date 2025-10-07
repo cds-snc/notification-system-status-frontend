@@ -52,4 +52,4 @@ jobs:
         if: ${{ failure() }}
         run: |
           json='{"text":"System Status Frontend upload to Staging failed <https://github.com/${{ github.repository }}>!"}'
-          curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_DEV_WEDBOOK }}
+          curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_DEV_WEBHOOK }}
