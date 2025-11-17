@@ -9,16 +9,12 @@ on:
 permissions:
   id-token: write
   contents: write
+  pull-requests: write
 
 env:
   PRODUCTION_ACCOUNT_ID: "296255494825"
   ACCOUNT_ID: ${{ secrets.PRODUCTION_AWS_ACCOUNT_ID }}
   AWS_DEFAULT_REGION: ca-central-1
-
-permissions:
-  id-token: write # This is required for requesting the OIDC JWT
-  contents: write # This is required for actions/checkout
-  pull-requests: write
 
 jobs:
   s3-backup:
