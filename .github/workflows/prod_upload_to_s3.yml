@@ -12,6 +12,13 @@ permissions:
 
 env:
   PRODUCTION_ACCOUNT_ID: "296255494825"
+  ACCOUNT_ID: ${{ secrets.PRODUCTION_AWS_ACCOUNT_ID }}
+  AWS_DEFAULT_REGION: ca-central-1
+
+permissions:
+  id-token: write # This is required for requesting the OIDC JWT
+  contents: write # This is required for actions/checkout
+  pull-requests: write
 
 jobs:
   s3-backup:
@@ -27,12 +34,12 @@ jobs:
         with:
           node-version: "14"
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
+      - name: Configure credentials to Notify using OIDC
+        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
         with:
-          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
-          aws-region: ca-central-1
+          role-to-assume: arn:aws:iam::${{env.ACCOUNT_ID}}:role/notification-system-status-frontend-apply
+          role-session-name: NotifySystemStatusFrontendApply
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
       - name: Get latest tag
         id: latest-tag
