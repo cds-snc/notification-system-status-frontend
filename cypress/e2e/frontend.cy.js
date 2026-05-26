@@ -25,7 +25,7 @@ function interceptExternalRequests(fixture1, fixture2) {
   if (!fixture2) fixture2 = 'articles-en.json';
 
   cy.intercept('/response.json*', { fixture: fixture1 }).as('status_update');
-  cy.intercept('GET','https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=system-status&lang=en',
+  cy.intercept('GET', '/articles-*.json*',
     { fixture: fixture2 }
   ).as('articles')
   cy.visit('/');
