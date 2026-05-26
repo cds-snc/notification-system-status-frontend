@@ -8,8 +8,8 @@
  */
 (async function () {
   const incident_history_pages = {
-    en: "https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=system-status&lang=en",
-    fr: "https://articles.alpha.canada.ca/notification-gc-notify/wp-json/wp/v2/pages?slug=etat-du-systeme&lang=fr",
+    en: "/articles-en.json",
+    fr: "/articles-fr.json",
   };
 
   /**
@@ -24,7 +24,7 @@
     document.getElementById(contentId).innerHTML = "";
     document.getElementById(loaderId).hidden = false;
 
-    const response = await AwsWafIntegration.fetch(incident_history_pages[lang]);
+    const response = await fetch(incident_history_pages[lang]);
     const incidents = await response.json();
     incident_html = incidents[0].content.rendered;
 
