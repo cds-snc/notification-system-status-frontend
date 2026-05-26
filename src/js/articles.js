@@ -24,7 +24,7 @@
     document.getElementById(contentId).innerHTML = "";
     document.getElementById(loaderId).hidden = false;
 
-    const response = await fetch(incident_history_pages[lang]);
+    const response = await AwsWafIntegration.fetch(incident_history_pages[lang]);
     const incidents = await response.json();
     incident_html = incidents[0].content.rendered;
 
