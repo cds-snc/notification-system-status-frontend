@@ -6,7 +6,6 @@ metadata:
   description: Public website displaying GC Notify service status.
   annotations:
     github.com/project-slug: cds-snc/notification-system-status-frontend
-    backstage.io/source-location: url:https://github.com/cds-snc/notification-system-status-frontend/tree/main/
   labels:
     license: MIT
 spec:
